@@ -1,12 +1,65 @@
 <div class="page">
-  <h2>Clinician Dashboard</h2>
-  <p>Here you’ll manage patients, clinical assessments, and reports.</p>
+  <header class="page-header">
+    <div>
+      <h2>Clinician Dashboard</h2>
+      <p>Manage patients, clinical assessments, and reports.</p>
+    </div>
+    <div>
+      <button (click)="loadPatients()">Reload patients</button>
+    </div>
+  </header>
 
-  <ul>
-    <li>New patient</li>
-    <li>Recent patients</li>
-    <li>Assessments waiting for report</li>
-  </ul>
+  <section class="section">
+    <h3>New patient</h3>
+    <form (ngSubmit)="addPatient()" style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+      <input
+        type="text"
+        placeholder="Name"
+        [(ngModel)]="newName"
+        name="name"
+        required
+      />
+      <input
+        type="number"
+        placeholder="Age"
+        [(ngModel)]="newAge"
+        name="age"
+        min="0"
+      />
+      <button type="submit">Add</button>
+    </form>
+  </section>
 
-  <button routerLink="/login">Back to login</button>
+  <section class="section" style="margin-top: 1.5rem;">
+    <h3>Patients</h3>
+
+    <p *ngIf="loading">Loading…</p>
+    <p *ngIf="error">{{ error }}</p>
+    <p *ngIf="!loading && !patients.length && !error">No patients yet.</p>
+
+    <table class="data-table" *ngIf="patients.length">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Sex</th>
+          <th>Last assessment</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let p of patients">
+          <td>{{ p.name }}</td>
+          <td>{{ p.age ?? '—' }}</td>
+          <td>{{ p.sex ?? '—' }}</td>
+          <td>{{ p.last_assessment ?? '—' }}</td>
+          <td>{{ p.status ?? '—' }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <footer style="margin-top: 2rem;">
+    <button routerLink="/login">Back to login</button>
+  </footer>
 </div>
