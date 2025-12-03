@@ -1,13 +1,13 @@
 // src/app/core/supabase.client.ts
 import { createClient, SupabaseClient } from '@supabase/supabase-js';
+import { environment } from 'src/environment';
 
 // Read Vite-style env vars (exposed on the client).
 // Netlify + Vite require client-visible vars to be prefixed with `VITE_`.
 // We now rely only on `VITE_*` names.
-const { VITE_SUPABASE_URL, VITE_SUPABASE_ANON_KEY } = (import.meta as any).env || {};
 
-const supabaseUrl = VITE_SUPABASE_URL as string | undefined;
-const supabaseAnonKey = VITE_SUPABASE_ANON_KEY as string | undefined;
+const supabaseUrl = environment.VITE_SUPABASE_URL
+const supabaseAnonKey = environment.VITE_SUPABASE_ANON_KEY 
 
 // Avoid throwing during module import (which breaks the whole app at runtime
 // if environment variables are missing, e.g. in Netlify Deploy Previews).

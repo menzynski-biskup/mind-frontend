@@ -1,22 +1,22 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
-  standalone: true,
   imports: [CommonModule],
   templateUrl: './login.html',
   styleUrl: './login.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LoginComponent {
-  constructor(private router: Router) {}
+  private readonly router = inject(Router);
 
-  goClinician() {
+  goClinician(): void {
     this.router.navigate(['/clinician']);
   }
 
-  goResearcher() {
+  goResearcher(): void {
     this.router.navigate(['/researcher']);
   }
 }

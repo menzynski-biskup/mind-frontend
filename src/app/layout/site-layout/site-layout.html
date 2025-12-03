@@ -1,0 +1,137 @@
+<div class="layout-root">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a class="skip-link" href="#site-navigation">Skip to navigation</a>
+  <a class="skip-link" href="#site-footer">Skip to footer</a>
+
+  <header class="layout-header">
+    <div class="layout-container layout-header-bar">
+      <div class="layout-brand">MIND toolbox</div>
+      <button
+        type="button"
+        class="menu-toggle"
+        [attr.aria-expanded]="menuOpen()"
+        aria-controls="site-navigation"
+        (click)="toggleMenu()"
+      >
+        Menu
+      </button>
+      <nav aria-label="Primary" id="site-navigation">
+        <ul
+          class="primary-nav"
+          [attr.data-open]="menuOpen()"
+          (mouseleave)="handlePrimaryNavLeave($event)"
+        >
+          @for (group of navGroups; track group.label; let i = $index) {
+            <li
+              class="nav-group"
+              [class.nav-group--has-children]="group.children?.length"
+              [class.nav-group--open]="isGroupOpen(i)"
+              (mouseenter)="handleGroupPointerEnter(i)"
+            >
+              @if (!group.children || group.children.length === 0) {
+                <a
+                  class="nav-link"
+                  [routerLink]="group.primary.path"
+                  routerLinkActive="active"
+                  #solo="routerLinkActive"
+                  [routerLinkActiveOptions]="{ exact: group.primary.path === '/' }"
+                  [attr.aria-current]="solo.isActive ? 'page' : null"
+                  (click)="closeMenu()"
+                >
+                  {{ group.label }}
+                </a>
+              } @else {
+                <button
+                  type="button"
+                  class="nav-disclosure"
+                  [attr.aria-expanded]="isGroupOpen(i)"
+                  aria-haspopup="true"
+                  [attr.aria-controls]="'submenu-' + i"
+                  (click)="toggleGroup(i)"
+                  (focus)="handleGroupFocus(i)"
+                  (keydown)="handleGroupKeydown($event, i)"
+                >
+                  <span>{{ group.label }}</span>
+                  <span class="nav-indicator" aria-hidden="true"></span>
+                </button>
+                <ul
+                  [id]="'submenu-' + i"
+                  class="nav-submenu"
+                  [attr.data-open]="isGroupOpen(i)"
+                  (mouseenter)="handleGroupPointerEnter(i)"
+                  (keydown.escape)="closeGroup()"
+                  (focusout)="handleSubmenuFocusOut($event, i)"
+                >
+                  <li class="nav-submenu__item nav-submenu__item--primary">
+                    <a
+                      [routerLink]="group.primary.path"
+                      routerLinkActive="active"
+                      #primaryLink="routerLinkActive"
+                      [routerLinkActiveOptions]="{ exact: true }"
+                      [attr.aria-current]="primaryLink.isActive ? 'page' : null"
+                      (click)="closeMenu()"
+                    >
+                      {{ group.primary.label }}
+                      <span class="nav-submenu__meta">Overview</span>
+                    </a>
+                  </li>
+                  @for (child of group.children; track child.label) {
+                    <li class="nav-submenu__item">
+                      <a
+                        [routerLink]="child.path"
+                        routerLinkActive="active"
+                        #childLink="routerLinkActive"
+                        [routerLinkActiveOptions]="{ exact: true }"
+                        [attr.aria-current]="childLink.isActive ? 'page' : null"
+                        (click)="closeMenu()"
+                      >
+                        {{ child.label }}
+                        @if (child.future) {
+                          <span class="tag">Planned</span>
+                        }
+                      </a>
+                    </li>
+                  }
+                </ul>
+              }
+            </li>
+          }
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <div
+    class="nav-overlay"
+    [class.nav-overlay--active]="menuOpen()"
+    (click)="toggleMenu()"
+    aria-hidden="true"
+  ></div>
+
+  <div class="layout-main">
+    <div class="layout-container layout-main-inner">
+      <main id="main-content" tabindex="-1">
+        <router-outlet></router-outlet>
+      </main>
+    </div>
+  </div>
+
+  <footer class="layout-footer" id="site-footer">
+    <div class="layout-container footer-grid">
+      <section aria-labelledby="footer-contact">
+        <h2 id="footer-contact">Contact</h2>
+        <p>Email: <a href="mailto:info@mind-neuro.org">info@mind-neuro.org</a></p>
+        <p class="meta-text">Response within five working days.</p>
+      </section>
+      <section aria-labelledby="footer-governance">
+        <h2 id="footer-governance">Governance</h2>
+        <p>Oversight by the Mind Neuro Diagnostics Governance Board.</p>
+        <p class="meta-text">Revision cycle: Quarterly</p>
+      </section>
+      <section aria-labelledby="footer-meta">
+        <h2 id="footer-meta">Repository</h2>
+        <p><a href="https://github.com/menzynski-biskup/mind-frontend" rel="noopener">Source Repository</a></p>
+        <p class="meta-text">Content license: CC BY 4.0</p>
+      </section>
+    </div>
+  </footer>
+</div>

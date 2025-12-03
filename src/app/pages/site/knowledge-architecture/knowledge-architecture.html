@@ -1,0 +1,71 @@
+<article class="page-content" aria-labelledby="knowledge-title">
+  <header>
+    <h1 id="knowledge-title" class="page-heading">Knowledge Architecture</h1>
+    <p>Taxonomies, ontologies, and documentation structures that drive consistent data stewardship.</p>
+    <div class="page-meta" aria-label="Page metadata">
+      <span class="meta-chip">Maintainer · Data Architecture Lead</span>
+      <span class="meta-chip">Next review · 2026-02-15</span>
+    </div>
+  </header>
+
+  <section class="section-block" aria-labelledby="knowledge-taxonomy">
+    <h2 id="knowledge-taxonomy">Data Taxonomy</h2>
+    <p>The taxonomy harmonises multimodal neuroscience and clinical datasets using interoperable identifiers to support analytics and governance.</p>
+    <table>
+      <caption>Primary Entities</caption>
+      <thead>
+        <tr>
+          <th scope="col">Entity</th>
+          <th scope="col">Description</th>
+          <th scope="col">Standards</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">Participant Profile</th>
+          <td>Demographics, consent status, longitudinal identifiers.</td>
+          <td>HL7 FHIR · ISO/TS 17975</td>
+        </tr>
+        <tr>
+          <th scope="row">Neuroimaging Session</th>
+          <td>Acquisition metadata, modality, preprocessing lineage.</td>
+          <td>BIDS · DICOM</td>
+        </tr>
+        <tr>
+          <th scope="row">Clinical Assessment</th>
+          <td>Clinician-reported outcomes, cognitive assessments.</td>
+          <td>LOINC · SNOMED CT</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="section-block" aria-labelledby="knowledge-ontology">
+    <h2 id="knowledge-ontology">Ontologies and Standards</h2>
+    <div class="callout" role="note" aria-label="Ontology status">
+      <p>SNOMED CT neurological disorders subset aligned with internal taxonomy; validation with clinical advisors scheduled for 2026 Q1.</p>
+    </div>
+    <p>Ontology revisions follow semantic versioning. Deprecations require migration notes and crosswalk tables published alongside release tags.</p>
+  </section>
+
+  <section class="section-block" aria-labelledby="knowledge-docs">
+    <h2 id="knowledge-docs">Documentation Index</h2>
+    <dl>
+      <dt>Data Stewardship Manual</dt>
+      <dd>Status: Draft · Review cadence: Bi-annual · Owner: Data Science Core</dd>
+      <dt>Clinical Data Intake Protocol</dt>
+      <dd>Status: In review · Review cadence: Quarterly · Owner: Clinical Integration Team</dd>
+      <dt>Ontology Governance Charter</dt>
+      <dd>Status: Approved · Review cadence: Annual · Owner: Governance Board</dd>
+    </dl>
+  </section>
+
+  <section class="section-block" aria-labelledby="knowledge-future">
+    <h2 id="knowledge-future">Future Enhancements</h2>
+    <ul>
+      <li>Expose JSON schemas for developer consumption via static `/schemas` directory.</li>
+      <li>Integrate ontology browser fed by versioned API endpoints.</li>
+      <li>Automate changelog feeds for taxonomy revisions.</li>
+    </ul>
+  </section>
+</article>

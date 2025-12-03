@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Knowledge Architecture Documentation</title>
+  <meta name="description" content="Reference documentation describing the knowledge architecture for the Mind Neuro Diagnostics Platform.">
+  <style>
+    :root {
+      color-scheme: light dark;
+      --color-bg: #f9f9fb;
+      --color-surface: #ffffff;
+      --color-text: #1c1c1f;
+      --color-accent: #0f4c81;
+      --color-border: #ced3da;
+      --font-base: "Noto Sans", "Segoe UI", Arial, sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: var(--font-base);
+      background: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.6;
+    }
+    a { color: var(--color-accent); }
+    a:focus-visible, button:focus-visible { outline: 3px solid #ffbf47; outline-offset: 2px; }
+    .skip-links { position: absolute; top: 0; left: 0; padding: 0; margin: 0; list-style: none; }
+    .skip-links a { position: absolute; transform: translateY(-150%); background: #0f4c81; color: #ffffff; padding: 0.5rem 1rem; text-decoration: none; }
+    .skip-links a:focus { transform: translateY(0); }
+    header { background: var(--color-surface); border-bottom: 1px solid var(--color-border); }
+    .container { margin: 0 auto; max-width: 1200px; padding: 0 1.5rem; }
+    .site-header { display: flex; align-items: center; justify-content: space-between; padding: 1rem 0; gap: 1rem; }
+    .brand { font-size: 1.25rem; font-weight: 600; letter-spacing: 0.02em; }
+    nav ul { display: flex; flex-wrap: wrap; gap: 1rem; list-style: none; padding: 0; margin: 0; }
+    nav a { text-decoration: none; font-weight: 500; color: var(--color-text); }
+    nav a[aria-current="page"] { color: var(--color-accent); }
+    .menu-toggle { display: none; background: transparent; border: 1px solid var(--color-border); padding: 0.4rem 0.8rem; border-radius: 4px; font-size: 0.95rem; }
+    main { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 3fr); gap: 2rem; padding: 2rem 0 3rem; }
+    main > article, aside { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 6px; padding: 1.5rem; }
+    section { margin-bottom: 2.5rem; }
+    section:last-child { margin-bottom: 0; }
+    h1, h2, h3, h4 { font-family: "IBM Plex Sans", var(--font-base); line-height: 1.3; }
+    h1 { font-size: 2rem; margin-top: 0; }
+    h2 { font-size: 1.5rem; margin-top: 2rem; }
+    h3 { font-size: 1.25rem; margin-top: 1.5rem; }
+    h4 { font-size: 1.1rem; margin-top: 1.25rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+    caption { text-align: left; font-weight: 600; margin-bottom: 0.5rem; }
+    th, td { border: 1px solid var(--color-border); padding: 0.75rem; text-align: left; vertical-align: top; }
+    th { background: #eef2f6; }
+    .callout { border-left: 4px solid var(--color-accent); padding-left: 1rem; margin: 1.5rem 0; }
+    footer { background: var(--color-surface); border-top: 1px solid var(--color-border); padding: 2rem 0; }
+    footer .footer-grid { display: grid; gap: 1.5rem; }
+    .meta { font-size: 0.9rem; color: #5a5f66; }
+    @media (max-width: 960px) {
+      main { grid-template-columns: 1fr; }
+      aside { order: -1; }
+    }
+    @media (max-width: 720px) {
+      .site-header { flex-wrap: wrap; }
+      nav ul { display: none; width: 100%; flex-direction: column; border: 1px solid var(--color-border); border-radius: 4px; padding: 1rem; gap: 0.75rem; background: var(--color-surface); }
+      nav ul[aria-expanded="true"] { display: flex; }
+      .menu-toggle { display: inline-flex; align-items: center; gap: 0.5rem; }
+    }
+  </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const toggle = document.getElementById('menu-toggle');
+      const menu = document.getElementById('primary-menu');
+      if (toggle && menu) {
+        toggle.addEventListener('click', function () {
+          const expanded = this.getAttribute('aria-expanded') === 'true';
+          this.setAttribute('aria-expanded', String(!expanded));
+          menu.setAttribute('aria-expanded', String(!expanded));
+        });
+      }
+    });
+  </script>
+</head>
+<body>
+  <ul class="skip-links">
+    <li><a href="#main-content">Skip to main content</a></li>
+    <li><a href="#section-navigation">Skip to section navigation</a></li>
+    <li><a href="#site-footer">Skip to footer</a></li>
+  </ul>
+  <header>
+    <div class="container site-header" role="presentation">
+      <div class="brand">Mind Neuro Diagnostics Platform</div>
+      <button id="menu-toggle" class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-menu">Menu</button>
+      <nav aria-label="Primary">
+        <ul id="primary-menu" aria-expanded="false">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="vision.html">Vision &amp; Mission</a></li>
+          <li><a href="scientific.html">Scientific Scope</a></li>
+          <li><a href="clinical.html">Clinical Scope</a></li>
+          <li><a href="documentation.html" aria-current="page">Knowledge Architecture</a></li>
+          <li><a href="technology.html">Technology Stack</a></li>
+          <li><a href="ethics.html">Ethics &amp; Governance</a></li>
+          <li><a href="roadmap.html">Research Roadmap</a></li>
+          <li><a href="collaboration.html">Collaboration &amp; Open Science</a></li>
+          <li><a href="publications.html">Publications / Preprints</a></li>
+          <li><a href="team.html">Team</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <div class="container">
+    <main id="main-content">
+      <article>
+        <header>
+          <h1>Knowledge Architecture Reference</h1>
+          <p>This documentation outlines the taxonomies, ontologies, and documentation framework guiding data stewardship for the platform.</p>
+        </header>
+        <section aria-labelledby="section-taxonomy">
+          <h2 id="section-taxonomy">Data Taxonomy</h2>
+          <p>The taxonomy harmonises neuroimaging, electrophysiology, and clinical assessment data into a unified schema to support integrative analytics.</p>
+          <table>
+            <caption>Core Data Entities</caption>
+            <thead>
+              <tr>
+                <th scope="col">Entity</th>
+                <th scope="col">Description</th>
+                <th scope="col">Primary Standards</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Participant Profile</th>
+                <td>Demographics, consent status, and longitudinal participation identifiers.</td>
+                <td>HL7 FHIR, ISO/TS 17975</td>
+              </tr>
+              <tr>
+                <th scope="row">Neuroimaging Session</th>
+                <td>Acquisition parameters, modality metadata, preprocessing status.</td>
+                <td>BIDS, DICOM</td>
+              </tr>
+              <tr>
+                <th scope="row">Clinical Assessment</th>
+                <td>Structured clinician-reported outcomes and validated instrument scores.</td>
+                <td>LOINC, SNOMED CT</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+        <section aria-labelledby="section-ontology">
+          <h2 id="section-ontology">Ontologies and Standards</h2>
+          <p>Ontology alignment ensures interoperability across domains. Controlled vocabularies are curated through quarterly governance review.</p>
+          <div class="callout" role="note" aria-label="Standards alignment note">
+            <p><strong>Status:</strong> Draft alignment complete for SNOMED CT neuro disorders subset; pending validation with clinical advisors.</p>
+          </div>
+          <h3>Versioning Strategy</h3>
+          <p>Each ontology ingestion is versioned semantically (<code>major.minor.patch</code>) and mapped to release tags in the repository. Deprecations include migration guidance.</p>
+        </section>
+        <section aria-labelledby="section-documentation">
+          <h2 id="section-documentation">Documentation Index</h2>
+          <p>Primary documentation artifacts are grouped by lifecycle stage. Links below indicate the owning team and review cadence.</p>
+          <dl>
+            <dt>Data Stewardship Manual</dt>
+            <dd>Owner: Data Science Core · Review: Bi-annual · Status: Draft</dd>
+            <dt>Clinical Data Intake Protocol</dt>
+            <dd>Owner: Clinical Integration Team · Review: Quarterly · Status: In review</dd>
+            <dt>Ontology Governance Charter</dt>
+            <dd>Owner: Ethics &amp; Governance Board · Review: Annual · Status: Approved</dd>
+          </dl>
+        </section>
+        <section aria-labelledby="section-future">
+          <h2 id="section-future">Future Enhancements</h2>
+          <ul>
+            <li>Integrate live ontology browser powered by API endpoints.</li>
+            <li>Expose JSON schemas for third-party developers via static `/schemas` directory.</li>
+            <li>Automate changelog feed reflecting taxonomy adjustments.</li>
+          </ul>
+        </section>
+      </article>
+      <aside id="section-navigation" aria-label="Document navigation">
+        <nav aria-labelledby="toc-heading">
+          <h2 id="toc-heading">Contents</h2>
+          <ol>
+            <li><a href="#section-taxonomy">Data Taxonomy</a></li>
+            <li><a href="#section-ontology">Ontologies and Standards</a></li>
+            <li><a href="#section-documentation">Documentation Index</a></li>
+            <li><a href="#section-future">Future Enhancements</a></li>
+          </ol>
+        </nav>
+        <section aria-labelledby="aside-metadata">
+          <h3 id="aside-metadata">Document Metadata</h3>
+          <p class="meta">Maintainer: Data Architecture Lead</p>
+          <p class="meta">Last reviewed: 2025-11-15</p>
+          <p class="meta">Document status: Draft</p>
+        </section>
+      </aside>
+    </main>
+  </div>
+  <footer id="site-footer">
+    <div class="container footer-grid">
+      <section aria-labelledby="footer-contact">
+        <h2 id="footer-contact">Contact</h2>
+        <p>Email: <a href="mailto:info@mind-neuro.org">info@mind-neuro.org</a></p>
+        <p class="meta">Use encrypted channels for sensitive data submissions.</p>
+      </section>
+      <section aria-labelledby="footer-governance">
+        <h2 id="footer-governance">Governance</h2>
+        <p>Documentation governed by the Knowledge Architecture Working Group.</p>
+      </section>
+      <section aria-labelledby="footer-meta">
+        <h2 id="footer-meta">Repository</h2>
+        <p><a href="https://github.com/menzynski-biskup/mind-frontend">Git Repository</a></p>
+        <p class="meta">Reference: commit <code>abc1234</code> (replace with latest).</p>
+      </section>
+    </div>
+  </footer>
+</body>
+</html>

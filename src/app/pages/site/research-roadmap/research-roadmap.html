@@ -1,0 +1,84 @@
+<article class="page-content" aria-labelledby="roadmap-title">
+  <header>
+    <h1 id="roadmap-title" class="page-heading">Research Roadmap</h1>
+    <p>Milestones, work packages, and risk snapshot informing the interdisciplinary programme plan.</p>
+    <div class="page-meta" aria-label="Page metadata">
+      <span class="meta-chip">Last update · 2025-12-01</span>
+      <span class="meta-chip">Review cadence · Monthly</span>
+    </div>
+  </header>
+
+  <section class="section-block" aria-labelledby="roadmap-milestones">
+    <h2 id="roadmap-milestones">Milestone Timeline</h2>
+    <div class="roadmap-grid">
+      <article class="roadmap-card status-complete">
+        <h3>2025 Q1 · Foundation Alignment</h3>
+        <p class="meta-text">Status: Complete · Owner: Program Management Office</p>
+        <p>Established governance charter, finalised clinical partner interviews, and defined data stewardship requirements.</p>
+      </article>
+      <article class="roadmap-card">
+        <h3>2025 Q3 · Data Architecture Prototype</h3>
+        <p class="meta-text">Status: In progress · Owner: Data Architecture Lead</p>
+        <p>Deliver first integrated data model, define ingestion workflows, and validate ontology mappings with scientific leads.</p>
+      </article>
+      <article class="roadmap-card">
+        <h3>2026 Q1 · Clinician Pilot</h3>
+        <p class="meta-text">Status: Planned · Owner: Clinical Integration Team</p>
+        <p>Launch limited clinical pilot, evaluate neurodiagnostic workflows, and gather feedback on decision-support interfaces.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section-block" aria-labelledby="roadmap-workpackages">
+    <h2 id="roadmap-workpackages">Work Packages</h2>
+    <ul>
+      <li><strong>WP1 · Scientific Frameworks:</strong> Curate interdisciplinary protocols covering neuroimaging, electrophysiology, and cognitive assessment.</li>
+      <li><strong>WP2 · Clinical Integration:</strong> Co-design clinician workflows, develop safety guardrails, and align regulatory requirements.</li>
+      <li><strong>WP3 · Platform Engineering:</strong> Implement static-first architecture, API readiness, and rigorous security baselines.</li>
+    </ul>
+  </section>
+
+  <section class="section-block" aria-labelledby="roadmap-risks">
+    <h2 id="roadmap-risks">Risk Register Snapshot</h2>
+    <table>
+      <caption>Priority Risks</caption>
+      <thead>
+        <tr>
+          <th scope="col">Risk</th>
+          <th scope="col">Mitigation</th>
+          <th scope="col">Owner</th>
+          <th scope="col">Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">Data Standard Divergence</th>
+          <td>Quarterly ontology workshops and schema validation within CI pipeline.</td>
+          <td>Data Architecture Lead</td>
+          <td>Mitigated</td>
+        </tr>
+        <tr>
+          <th scope="row">Clinical Adoption Lag</th>
+          <td>Embed clinician feedback loops and accredited training resources.</td>
+          <td>Clinical Integration Team</td>
+          <td>Watch</td>
+        </tr>
+        <tr>
+          <th scope="row">Security Baseline Gaps</th>
+          <td>Threat modelling and incremental security control deployment.</td>
+          <td>Platform Engineering</td>
+          <td>Open</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="section-block" aria-labelledby="roadmap-future">
+    <h2 id="roadmap-future">Future Automation</h2>
+    <ul>
+      <li>Expose static JSON at <code>/api/roadmap.json</code> for integration with dashboards.</li>
+      <li>Integrate milestone status badges sourced from project management tooling.</li>
+      <li>Link milestones to publications and dataset releases as they become available.</li>
+    </ul>
+  </section>
+</article>

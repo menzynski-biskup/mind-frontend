@@ -1,0 +1,20 @@
+.patient-form {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem;
+	align-items: center;
+}
+
+.patient-form input,
+.patient-form button {
+	flex: 1 1 12rem;
+	min-height: 2.5rem;
+}
+
+.section--patients {
+	margin-top: 1.5rem;
+}
+
+.dashboard-footer {
+	margin-top: 2rem;
+}

@@ -7,7 +7,7 @@ export interface Patient {
   name: string;
   date_birth: Date | null;
   sex: string | null;
-  last_assessment: string | null; // ISO date
+  last_assessment: Date | null; // ISO date
   status: string | null;
 }
 

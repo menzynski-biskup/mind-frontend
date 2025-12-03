@@ -5,39 +5,38 @@
       <p>Manage patients, clinical assessments, and reports.</p>
     </div>
     <div>
-      <button (click)="loadPatients()">Reload patients</button>
+      <button type="button" (click)="loadPatients()" [disabled]="loading()">
+        Reload patients
+      </button>
     </div>
   </header>
 
   <section class="section">
     <h3>New patient</h3>
-    <form (ngSubmit)="addPatient()" style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-      <input
-        type="text"
-        placeholder="Name"
-        [(ngModel)]="newName"
-        name="name"
-        required
-      />
-      <input
-        type="date"
-        placeholder="Date of birth"
-        [(ngModel)]="newDateBirth"
-        name="date_birth"
-        min="0"
-      />
-      <button type="submit">Add</button>
+    <form class="patient-form" [formGroup]="addPatientForm" (ngSubmit)="addPatient()">
+      <input type="text" placeholder="Name" formControlName="name" required />
+      <input type="date" placeholder="Date of birth" formControlName="dateBirth" />
+      <button type="submit" [disabled]="addPatientForm.invalid || loading()">Add</button>
     </form>
   </section>
 
-  <section class="section" style="margin-top: 1.5rem;">
-    <h3>Patients</h3>
+<section class="section section--patients">
+  <h3>Patients</h3>
 
-    <p *ngIf="loading">Loading…</p>
-    <p *ngIf="error">{{ error }}</p>
-    <p *ngIf="!loading && !patients.length && !error">No patients yet.</p>
+  @if (loading()) {
+    <p>Loading…</p>
+  }
 
-    <table class="data-table" *ngIf="patients.length">
+  @if (error()) {
+    <p role="alert">{{ error() }}</p>
+  }
+
+  @if (showEmptyState()) {
+    <p>No patients yet.</p>
+  }
+
+  @if (hasPatients()) {
+    <table class="data-table">
       <thead>
         <tr>
           <th>Name</th>
@@ -48,18 +47,21 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let p of patients">
-          <td>{{ p.name }}</td>
-          <td>{{ p.date_birth ?? '—' }}</td>
-          <td>{{ p.sex ?? '—' }}</td>
-          <td>{{ p.last_assessment ?? '—' }}</td>
-          <td>{{ p.status ?? '—' }}</td>
-        </tr>
+        @for (p of patients(); track p.id) {
+          <tr>
+            <td>{{ p.name }}</td>
+            <td>{{ p.date_birth ?? '—' }}</td>
+            <td>{{ p.sex ?? '—' }}</td>
+            <td>{{ p.last_assessment ?? '—' }}</td>
+            <td>{{ p.status ?? '—' }}</td>
+          </tr>
+        }
       </tbody>
     </table>
-  </section>
+  }
+</section>
 
-  <footer style="margin-top: 2rem;">
+  <footer class="dashboard-footer">
     <button routerLink="/login">Back to login</button>
   </footer>
 </div>
