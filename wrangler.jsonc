@@ -2,7 +2,7 @@
   "$schema": "./node_modules/wrangler/config-schema.json",
 
   // Name of your Worker (must be unique in your account)
-  "name": "mind-frontend",
+  "name": "mindtoolbox",
 
   // Pick today's date (or keep it current when you update runtime behavior)
   "compatibility_date": "2026-01-28",
