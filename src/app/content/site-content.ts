@@ -17,39 +17,58 @@ export const SITE_CONTENT: SiteContent = {
       hero: {
         title: 'Mind Toolbox',
         description:
-          'A streamlined workspace for exploring neurodiagnostic functions, program direction, and collaboration.',
+          'A focused hub for collaborators and investors to align on the clinical mission, opportunity landscape, and execution roadmap.',
+        actions: [
+          {
+            label: 'Explore Functions',
+            path: '/functions',
+            variant: 'primary',
+          },
+          {
+            label: 'Contact the Team',
+            path: '/contact',
+            variant: 'secondary',
+          },
+        ],
       },
       sections: [
         {
-          id: 'overview',
-          title: 'Purpose',
-          body: 'Centralize the essential tools, workflows, and context needed to support neurodiagnostic initiatives.',
+          id: 'why',
+          title: 'Why this exists',
+          paragraphs: [
+            'Neurodiagnostic programs demand alignment across research, clinical delivery, and investment strategy. The Mind Toolbox anchors that alignment with a shared narrative and curated operational context.',
+            'We translate complex scientific ambition into a concise experience that highlights decision-ready signals, ensuring collaborators understand what is real today and what is ahead.',
+            'The outcome is a clear, investor-ready summary of the mission, the team, and the near-term execution plan.',
+          ],
         },
         {
-          id: 'highlights',
-          title: 'Highlights',
+          id: 'who',
+          title: "Who it\u2019s for",
           features: [
             {
-              title: 'Functions Catalog',
-              description: 'Review the latest diagnostic workflows and tooling summaries in one place.',
+              title: 'Neuropsychologists',
+              description:
+                'Clinicians looking for evidence-informed workflows, reference material, and shared clinical language.',
             },
             {
-              title: 'Mission-Driven',
-              description: 'Keep the team aligned on the program mission and strategic focus.',
+              title: 'Clinical psychologists',
+              description:
+                'Leaders shaping assessment strategy and continuity of care across multidisciplinary teams.',
             },
             {
-              title: 'Clear Contact Paths',
-              description: 'Reach the right stakeholders quickly through a dedicated contact hub.',
+              title: 'Psychotherapists',
+              description:
+                'Partners focused on therapeutic outcomes who need a clear view into diagnostic context and referrals.',
             },
           ],
         },
         {
-          id: 'next',
-          title: 'Next Steps',
+          id: 'coming',
+          title: "What\u2019s coming",
           bullets: [
-            'Review the functions list and flag updates for the next sprint.',
-            'Align the About page with the current quarterly strategy.',
-            'Share the contact pathways with partner teams.',
+            'Expanded function briefs with clinical evidence notes and operational readiness tags.',
+            'Investor-facing milestones tied to pilot deployments and validation studies.',
+            'Partner onboarding playbooks for coordinated research and clinical rollout.',
           ],
         },
       ],

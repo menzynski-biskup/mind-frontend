@@ -1,21 +1,31 @@
-<article class="page-content" aria-labelledby="home-title">
-  <header>
-    <h1 id="home-title" class="page-heading">{{ vm.page.hero.title }}</h1>
-    <p>{{ vm.page.hero.description }}</p>
-    <div class="page-meta" aria-label="Page metadata">
-      @for (meta of vm.page.hero.meta; track meta) {
-        <span class="meta-chip">{{ meta }}</span>
-      }
+<article class="page-content home-content" aria-labelledby="home-title">
+  <header class="home-hero">
+    <div class="home-hero__text">
+      <h1 id="home-title" class="page-heading">{{ vm.page.hero.title }}</h1>
+      <p>{{ vm.page.hero.description }}</p>
+      <div class="home-hero__actions" aria-label="Primary actions">
+        @for (action of vm.page.hero.actions; track action.label) {
+          <a
+            class="cta-button"
+            [class.cta-button--secondary]="action.variant === 'secondary'"
+            [routerLink]="action.path"
+          >
+            {{ action.label }}
+          </a>
+        }
+      </div>
     </div>
   </header>
 
-  <section class="section-block" aria-labelledby="home-overview">
-    <h2 id="home-overview">{{ vm.page.sections[0].title }}</h2>
-    <p>{{ vm.page.sections[0].body }}</p>
+  <section class="section-block" aria-labelledby="home-why">
+    <h2 id="home-why">{{ vm.page.sections[0].title }}</h2>
+    @for (paragraph of vm.page.sections[0].paragraphs; track paragraph) {
+      <p>{{ paragraph }}</p>
+    }
   </section>
 
-  <section class="section-block" aria-labelledby="home-highlights">
-    <h2 id="home-highlights">{{ vm.page.sections[1].title }}</h2>
+  <section class="section-block" aria-labelledby="home-who">
+    <h2 id="home-who">{{ vm.page.sections[1].title }}</h2>
     <div class="summary-grid" role="list">
       @for (feature of vm.page.sections[1].features; track feature.title) {
         <article class="summary-card" role="listitem">
@@ -26,8 +36,8 @@
     </div>
   </section>
 
-  <section class="section-block" aria-labelledby="home-next">
-    <h2 id="home-next">{{ vm.page.sections[2].title }}</h2>
+  <section class="section-block" aria-labelledby="home-coming">
+    <h2 id="home-coming">{{ vm.page.sections[2].title }}</h2>
     <ul>
       @for (item of vm.page.sections[2].bullets; track item) {
         <li>{{ item }}</li>

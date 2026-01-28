@@ -9,12 +9,19 @@ export interface Hero {
   title: string;
   description: string;
   meta?: string[];
+  actions?: HeroAction[];
 }
 
 export interface Feature {
   title: string;
   description: string;
   tag?: string;
+}
+
+export interface HeroAction {
+  label: string;
+  path: string;
+  variant?: 'primary' | 'secondary';
 }
 
 export interface TableData {
@@ -32,6 +39,7 @@ export interface Section {
   id: string;
   title: string;
   body?: string;
+  paragraphs?: string[];
   bullets?: string[];
   ordered?: string[];
   table?: TableData;
