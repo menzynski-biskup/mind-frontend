@@ -9,7 +9,7 @@
 
   // Serve your Angular build output as static assets
   "assets": {
-    "directory": "./dist/mind-frontend",
+    "directory": "./dist/mind-frontend/browser",
 
     // SPA routing: if /some/route isn't a real file, serve /index.html
     "not_found_handling": "single-page-application"
