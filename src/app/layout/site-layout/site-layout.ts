@@ -2,7 +2,6 @@ import { ChangeDetectionStrategy, Component, ElementRef, inject, signal } from '
 import { CommonModule } from '@angular/common';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { ContentService } from '../../content/content.service';
-import { NavItem } from '../../content/site-content.model';
 
 @Component({
   selector: 'app-site-layout',
@@ -21,6 +20,7 @@ export class SiteLayoutComponent {
   private readonly content = inject(ContentService);
 
   protected readonly navGroups = this.content.nav();
+  protected readonly footer = this.content.footer;
 
   toggleMenu(): void {
     this.menuOpen.update((state) => !state);

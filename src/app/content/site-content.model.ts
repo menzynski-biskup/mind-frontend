@@ -71,30 +71,14 @@ export interface PageContent {
 export interface SiteContent {
   nav: NavItem[];
   footer: {
-    contact: Contact;
-    governance: {
-      title: string;
-      body: string;
-      meta: string;
-    };
-    repository: {
-      label: string;
-      url: string;
-      license: string;
-    };
+    projectName: string;
+    mission: string;
   };
   pages: {
     home: PageContent;
-    vision: PageContent;
-    scientific: PageContent;
-    clinical: PageContent;
-    knowledge: PageContent;
-    technology: PageContent;
-    collaboration: PageContent;
-    roadmap: PageContent;
-    publications: PageContent;
-    team: PageContent;
+    functions: PageContent;
+    about: PageContent;
     contact: PageContent;
-    ethics: PageContent;
+    [key: string]: PageContent;
   };
 }

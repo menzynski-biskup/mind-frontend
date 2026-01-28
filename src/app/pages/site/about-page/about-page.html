@@ -1,0 +1,25 @@
+<article class="page-content" aria-labelledby="about-title">
+  <header>
+    <h1 id="about-title" class="page-heading">{{ vm.page.hero.title }}</h1>
+    <p>{{ vm.page.hero.description }}</p>
+  </header>
+
+  <section class="section-block" aria-labelledby="about-mission">
+    <h2 id="about-mission">{{ vm.page.sections[0].title }}</h2>
+    <p>{{ vm.page.sections[0].body }}</p>
+  </section>
+
+  <section class="section-block" aria-labelledby="about-approach">
+    <h2 id="about-approach">{{ vm.page.sections[1].title }}</h2>
+    <ul>
+      @for (item of vm.page.sections[1].bullets; track item) {
+        <li>{{ item }}</li>
+      }
+    </ul>
+  </section>
+
+  <section class="section-block" aria-labelledby="about-values">
+    <h2 id="about-values">{{ vm.page.sections[2].title }}</h2>
+    <p>{{ vm.page.sections[2].body }}</p>
+  </section>
+</article>

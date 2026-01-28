@@ -1,0 +1,20 @@
+<article class="page-content" aria-labelledby="functions-title">
+  <header>
+    <h1 id="functions-title" class="page-heading">{{ vm.page.hero.title }}</h1>
+    <p>{{ vm.page.hero.description }}</p>
+  </header>
+
+  <section class="section-block" aria-labelledby="functions-catalog">
+    <h2 id="functions-catalog">{{ vm.page.sections[0].title }}</h2>
+    <ul>
+      @for (item of vm.page.sections[0].bullets; track item) {
+        <li>{{ item }}</li>
+      }
+    </ul>
+  </section>
+
+  <section class="section-block" aria-labelledby="functions-delivery">
+    <h2 id="functions-delivery">{{ vm.page.sections[1].title }}</h2>
+    <p>{{ vm.page.sections[1].body }}</p>
+  </section>
+</article>

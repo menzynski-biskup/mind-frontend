@@ -167,6 +167,33 @@ button {
   transition: background 0.2s ease, box-shadow 0.2s ease;
 }
 
+.menu-icon {
+  width: 18px;
+  height: 2px;
+  background: var(--color-accent-strong);
+  border-radius: 999px;
+  position: relative;
+}
+
+.menu-icon::before,
+.menu-icon::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 18px;
+  height: 2px;
+  background: var(--color-accent-strong);
+  border-radius: 999px;
+}
+
+.menu-icon::before {
+  top: -6px;
+}
+
+.menu-icon::after {
+  top: 6px;
+}
+
 .menu-toggle:hover,
 .menu-toggle:focus-visible {
   background: var(--color-accent-soft);
@@ -216,8 +243,27 @@ button {
   box-shadow: inset 0 0 0 1px rgba(17, 76, 152, 0.25);
 }
 
+.nav-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(8, 24, 54, 0.35);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  z-index: 40;
+}
+
+.nav-overlay--active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
 .layout-main {
   flex: 1;
+}
+
+.layout-main--blurred {
+  filter: blur(0.5px);
 }
 
 .layout-main-inner {
@@ -356,6 +402,10 @@ ol {
   margin: 0 0 1.25rem;
   color: var(--color-text);
   list-style: decimal-leading-zero;
+}
+
+ul {
+  list-style: disc;
 }
 
 li {
@@ -519,8 +569,30 @@ dd {
   color: var(--color-subtle);
 }
 
+.footer-grid ul {
+  margin: 0;
+}
+
 .footer-grid a {
   font-weight: 600;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.4rem;
+}
+
+.footer-links a {
+  font-weight: 600;
+  color: var(--color-accent-strong);
+}
+
+.footer-links a:hover,
+.footer-links a:focus-visible {
+  color: var(--color-accent);
 }
 
 @media (max-width: 1024px) {

@@ -27,13 +27,4 @@
     <h2 id="contact-media">{{ vm.page.sections[2].title }}</h2>
     <p>{{ vm.page.sections[2].body }}</p>
   </section>
-
-  <section class="section-block" aria-labelledby="contact-future">
-    <h2 id="contact-future">{{ vm.page.sections[3].title }}</h2>
-    <ul>
-      @for (item of vm.page.sections[3].bullets; track item) {
-        <li>{{ item }}</li>
-      }
-    </ul>
-  </section>
 </article>
