@@ -361,6 +361,34 @@ export const SITE_CONTENT: SiteContent = {
         },
       ],
     },
+    roadmap: {
+      hero: {
+        title: 'Research Roadmap',
+        description:
+          'Sequenced milestones and decision gates guiding platform delivery and clinical translation.',
+        meta: ['Status · Draft', 'Review cadence · Quarterly'],
+      },
+      sections: [
+        {
+          id: 'phases',
+          title: 'Phased Delivery',
+          ordered: [
+            '2025 Q1–Q2: Finalise knowledge architecture, governance policies, and data standards.',
+            '2025 Q3–Q4: Pilot multimodal analytics workflows with partner sites.',
+            '2026 Q1–Q2: Launch clinician-facing dashboards and audit-ready reporting.',
+          ],
+        },
+        {
+          id: 'dependencies',
+          title: 'Critical Dependencies',
+          bullets: [
+            'Ethics board approval for cross-site data sharing agreements.',
+            'Clinical partner validation of diagnostic workflow prototypes.',
+            'Security review completion for API and data access layers.',
+          ],
+        },
+      ],
+    },
     publications: {
       hero: {
         title: 'Publications / Preprints',
