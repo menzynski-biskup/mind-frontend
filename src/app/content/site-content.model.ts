@@ -39,6 +39,7 @@ export interface Section {
   id: string;
   title: string;
   body?: string;
+  meta?: string[];
   paragraphs?: string[];
   bullets?: string[];
   ordered?: string[];
@@ -84,7 +85,6 @@ export interface SiteContent {
   };
   pages: {
     home: PageContent;
-    functions: PageContent;
     about: PageContent;
     contact: PageContent;
     [key: string]: PageContent;
