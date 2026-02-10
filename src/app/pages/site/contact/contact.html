@@ -2,29 +2,44 @@
   <header>
     <h1 id="contact-title" class="page-heading">{{ vm.page.hero.title }}</h1>
     <p>{{ vm.page.hero.description }}</p>
-    <div class="page-meta" aria-label="Page metadata">
-      @for (meta of vm.page.hero.meta; track meta) {
-        <span class="meta-chip">{{ meta }}</span>
-      }
-    </div>
+    @if (vm.page.hero.meta) {
+      <div class="page-meta" aria-label="Page metadata">
+        @for (meta of vm.page.hero.meta; track meta) {
+          <span class="meta-chip">{{ meta }}</span>
+        }
+      </div>
+    }
   </header>
 
-  <section class="section-block" aria-labelledby="contact-general">
-    <h2 id="contact-general">{{ vm.page.sections[0].title }}</h2>
-    <p>{{ vm.page.sections[0].body }}</p>
-  </section>
-
-  <section class="section-block" aria-labelledby="contact-collaboration">
-    <h2 id="contact-collaboration">{{ vm.page.sections[1].title }}</h2>
-    <ol>
-      @for (step of vm.page.sections[1].ordered; track step) {
-        <li>{{ step }}</li>
+  @for (section of vm.page.sections; track section.id) {
+    <section class="section-block" [attr.aria-labelledby]="'contact-' + section.id">
+      <h2 [id]="'contact-' + section.id">{{ section.title }}</h2>
+      
+      @if (section.paragraphs) {
+        @for (paragraph of section.paragraphs; track paragraph) {
+          <p>{{ paragraph }}</p>
+        }
       }
-    </ol>
-  </section>
-
-  <section class="section-block" aria-labelledby="contact-media">
-    <h2 id="contact-media">{{ vm.page.sections[2].title }}</h2>
-    <p>{{ vm.page.sections[2].body }}</p>
-  </section>
+      
+      @if (section.body) {
+        <p>{{ section.body }}</p>
+      }
+      
+      @if (section.bullets) {
+        <ul>
+          @for (item of section.bullets; track item) {
+            <li>{{ item }}</li>
+          }
+        </ul>
+      }
+      
+      @if (section.ordered) {
+        <ol>
+          @for (step of section.ordered; track step) {
+            <li>{{ step }}</li>
+          }
+        </ol>
+      }
+    </section>
+  }
 </article>

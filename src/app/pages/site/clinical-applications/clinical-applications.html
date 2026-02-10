@@ -1,12 +1,17 @@
-<article class="page-content" aria-labelledby="about-title">
+<article class="page-content" aria-labelledby="clinical-applications-title">
   <header>
-    <h1 id="about-title" class="page-heading">{{ vm.page.hero.title }}</h1>
+    <h1 id="clinical-applications-title" class="page-heading">{{ vm.page.hero.title }}</h1>
     <p>{{ vm.page.hero.description }}</p>
+    @if (vm.page.hero.meta) {
+      @for (metaItem of vm.page.hero.meta; track metaItem) {
+        <p class="meta-notice"><strong>{{ metaItem }}</strong></p>
+      }
+    }
   </header>
 
   @for (section of vm.page.sections; track section.id) {
-    <section class="section-block" [attr.aria-labelledby]="'about-' + section.id">
-      <h2 [id]="'about-' + section.id">{{ section.title }}</h2>
+    <section class="section-block" [attr.aria-labelledby]="'section-' + section.id">
+      <h2 [id]="'section-' + section.id">{{ section.title }}</h2>
       
       @if (section.paragraphs) {
         @for (paragraph of section.paragraphs; track paragraph) {

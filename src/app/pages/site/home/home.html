@@ -24,11 +24,19 @@
     }
   </section>
 
-  <section class="section-block" aria-labelledby="home-who">
-    <h2 id="home-who">{{ vm.page.sections[1].title }}</h2>
+  <section class="section-block" aria-labelledby="home-what">
+    <h2 id="home-what">{{ vm.page.sections[1].title }}</h2>
+    @if (vm.page.sections[1].meta) {
+      @for (metaItem of vm.page.sections[1].meta; track metaItem) {
+        <p class="meta-notice"><em>{{ metaItem }}</em></p>
+      }
+    }
     <div class="summary-grid" role="list">
       @for (feature of vm.page.sections[1].features; track feature.title) {
         <article class="summary-card" role="listitem">
+          @if (feature.tag) {
+            <span class="feature-tag">{{ feature.tag }}</span>
+          }
           <h3>{{ feature.title }}</h3>
           <p>{{ feature.description }}</p>
         </article>
@@ -36,12 +44,29 @@
     </div>
   </section>
 
-  <section class="section-block" aria-labelledby="home-coming">
-    <h2 id="home-coming">{{ vm.page.sections[2].title }}</h2>
-    <ul>
-      @for (item of vm.page.sections[2].bullets; track item) {
-        <li>{{ item }}</li>
+  <section class="section-block" aria-labelledby="home-dementia">
+    <h2 id="home-dementia">{{ vm.page.sections[2].title }}</h2>
+    @if (vm.page.sections[2].paragraphs) {
+      @for (paragraph of vm.page.sections[2].paragraphs; track paragraph) {
+        <p>{{ paragraph }}</p>
       }
-    </ul>
+    }
+    @if (vm.page.sections[2].bullets) {
+      <ul>
+        @for (item of vm.page.sections[2].bullets; track item) {
+          <li>{{ item }}</li>
+        }
+      </ul>
+    }
+  </section>
+
+  <section class="section-block" aria-labelledby="home-ethics">
+    <h2 id="home-ethics">{{ vm.page.sections[3].title }}</h2>
+    <p>{{ vm.page.sections[3].body }}</p>
+  </section>
+
+  <section class="section-block" aria-labelledby="home-updates">
+    <h2 id="home-updates">{{ vm.page.sections[4].title }}</h2>
+    <p>{{ vm.page.sections[4].body }}</p>
   </section>
 </article>
