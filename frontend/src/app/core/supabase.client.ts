@@ -1,6 +1,6 @@
 // src/app/core/supabase.client.ts
 import { createClient, SupabaseClient } from '@supabase/supabase-js';
-import { environment } from 'src/environment';
+import { environment } from '../../environment';
 
 // Read Vite-style env vars (exposed on the client).
 // Netlify + Vite require client-visible vars to be prefixed with `VITE_`.

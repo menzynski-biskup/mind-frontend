@@ -3,13 +3,18 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "outDir": "./out-tsc/spec",
-    "types": [
-      "vitest/globals"
-    ]
+    "outDir": "./frontend/dist/out-tsc",
+    "types": [],
+    "baseUrl": "./",
+    "paths": {
+      "@core/*": ["frontend/src/app/core/*"],
+      "pages/*": ["frontend/src/app/pages/*"]
+    }
   },
   "include": [
-    "src/**/*.d.ts",
-    "src/**/*.spec.ts"
+    "frontend/src/**/*.ts"
+  ],
+  "exclude": [
+    "frontend/src/**/*.spec.ts"
   ]
 }
