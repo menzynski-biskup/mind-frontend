@@ -2,6 +2,18 @@
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.0.0.
 
+## Project Overview
+
+MIND is a proposed research and development initiative exploring mechanism-informed, technology-enabled decision support for mental health and neurocognitive disorders. The platform includes:
+
+- Clinical decision support tools for dementia and psychiatric assessment
+- Researcher mode for building and managing research studies with:
+  - Study creation and configuration
+  - Intake forms and participant enrollment
+  - Test administration and sequencing
+  - Centralized data organization
+  - Research pipeline management
+
 ## Development server
 
 To start a local development server, run:

@@ -13,6 +13,11 @@
 │   ├── Diagnostic Pathways
 │   ├── Clinical Integration
 │   └── Patient Safeguards
+├── Researcher Mode
+│   ├── Research Pipeline Overview
+│   ├── Study Creation & Management
+│   ├── Intake Forms & Assessments
+│   └── Data Organization & Export
 ├── Knowledge Architecture
 │   ├── Data Taxonomy
 │   ├── Ontologies & Standards
@@ -64,6 +69,10 @@
   - **Role**: Clarify clinical integration pathways and guardrails.
   - **Content**: Care pathway diagrams, compliance requirements, clinician engagement processes.
   - **Evolution**: Host clinician portal entry points and training modules later.
+- **Researcher Mode**
+  - **Role**: Provide tools for researchers to build and manage research studies similar to clinical pipelines.
+  - **Content**: Overview of research pipeline capabilities, study creation workflows, intake form design, test administration, participant management, and data organization.
+  - **Evolution**: Integrate with data collection APIs, participant tracking systems, and analytics dashboards as development progresses.
 - **Knowledge Architecture**
   - **Role**: Describe information architecture, taxonomies, and documentation.
   - **Content**: Data model summaries, ontology references, documentation index.

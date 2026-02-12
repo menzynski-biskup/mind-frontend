@@ -14,14 +14,14 @@ export const SITE_CONTENT: SiteContent = {
   footer: {
     projectName: 'MIND',
     mission:
-      'A proposed research initiative exploring mechanism-informed, technology-enabled decision support for mental health and neurocognitive disorders.',
+      'A proposed research initiative exploring mechanism-informed, technology-enabled decision support for mental health and neurocognitive disorders, including research pipeline tools for building and managing studies.',
   },
   pages: {
     home: {
       hero: {
         title: 'A Concept for Modern Integrated Neurocognitive Diagnostics',
         description:
-          'MIND is a proposed research and development initiative exploring mechanism-informed, technology-enabled decision support for mental health and neurocognitive disorders.',
+          'MIND is a proposed research and development initiative exploring mechanism-informed, technology-enabled decision support for mental health and neurocognitive disorders, including research pipeline tools for researchers.',
         actions: [
           {
             label: 'Learn about the concept',
@@ -65,6 +65,12 @@ export const SITE_CONTENT: SiteContent = {
               title: 'Digital / AI-based decision support',
               description:
                 'We propose to explore AI tools that would remain under clinician control, supporting rather than replacing clinical judgment.',
+              tag: 'Planned',
+            },
+            {
+              title: 'Researcher mode for building research pipelines',
+              description:
+                'We plan to provide researchers with tools to create studies, manage intake forms, add tests for participants, and keep all research data organized in one place.',
               tag: 'Planned',
             },
             {
@@ -139,6 +145,7 @@ export const SITE_CONTENT: SiteContent = {
           bullets: [
             'Research investigating limitations of current tools and potential enhancements',
             'Development of mechanism-informed assessment frameworks',
+            'Researcher mode: tools for creating research studies, managing intake forms, adding tests for participants, and organizing research pipelines',
             'Conceptual design of the Dementia AI Assistant',
             'Ethics and safety considerations embedded from the design phase',
             'Future clinical pilot collaborations (conditional on ethics approval and funding)',
@@ -166,7 +173,7 @@ export const SITE_CONTENT: SiteContent = {
     research: {
       hero: {
         title: 'Research',
-        description: 'Planned research directions and questions we aim to explore.',
+        description: 'Planned research directions, research pipeline tools, and questions we aim to explore.',
       },
       sections: [
         {
@@ -195,8 +202,26 @@ export const SITE_CONTENT: SiteContent = {
             'Limitations of existing assessments and potential digital enhancements',
             'Diagnostic heterogeneity and mechanistic/subtyping frameworks',
             'Dementia differential diagnosis and structured support tools',
+            'Research pipeline tools for researchers to build and manage studies',
             'AI clinical decision support principles and evaluation frameworks',
             'Implementation science and human factors in clinical AI adoption',
+          ],
+        },
+        {
+          id: 'researcher-mode',
+          title: 'Researcher Mode: Building Research Pipelines (Planned)',
+          paragraphs: [
+            'Similar to our clinical pipeline approach, MIND aims to provide researchers with dedicated tools to create and manage research studies.',
+            'This researcher mode would enable researchers to design studies from start to finish, including participant intake, test administration, and data organization.',
+            'All research data and protocols would be centralized in one place, making it easier to manage complex multi-phase studies.',
+          ],
+          bullets: [
+            'Create and configure research studies with customizable parameters',
+            'Design intake forms and questionnaires for participant enrollment',
+            'Add and sequence cognitive tests, assessments, and measures',
+            'Manage participant flow through study protocols',
+            'Organize and export research data for analysis',
+            'Collaborate with research team members on study management',
           ],
         },
         {
