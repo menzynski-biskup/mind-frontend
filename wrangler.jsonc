@@ -17,13 +17,13 @@
   //   3. Replace YOUR_DATABASE_ID_HERE with the actual ID
   //   4. Uncomment the lines below
   //   5. Run migration: npx wrangler d1 execute mindtoolbox-db --remote --file=./worker/migrations/0001_create_users_table.sql
-  // "d1_databases": [
-  //   {
-  //     "binding": "DB",
-  //     "database_name": "mindtoolbox-db",
-  //     "database_id": "YOUR_DATABASE_ID_HERE"
-  //   }
-  // ],
+  "d1_databases": [
+    {
+    "binding": "DB",
+    "database_name": "mindtoolbox-db",
+    "database_id": "e75d8e99-06d8-4da1-8e2f-1e591f91c0b2"
+    }
+    ],
 
   // Environment variables
   // IMPORTANT: Set JWT_SECRET as a secret in production using:
