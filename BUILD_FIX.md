@@ -37,7 +37,7 @@ Made the D1 database binding optional by default:
 //   2. Copy the database_id from the output
 //   3. Replace YOUR_DATABASE_ID_HERE with the actual ID
 //   4. Uncomment the lines below
-//   5. Run migration: npx wrangler d1 execute mindtoolbox-db --remote --file=./worker/migrations/0001_create_users_table.sql
+//   5. Run migration: npx wrangler d1 execute mindtoolbox-db --remote --file=./backend/migrations/0001_create_users_table.sql
 // "d1_databases": [
 //   {
 //     "binding": "DB",
@@ -49,7 +49,7 @@ Made the D1 database binding optional by default:
 
 ### 2. Made Environment Bindings Optional
 
-Updated `worker/src/types/env.ts`:
+Updated `backend/src/types/env.ts`:
 ```typescript
 export interface Env {
   DB?: D1Database;      // Optional until configured
@@ -59,7 +59,7 @@ export interface Env {
 
 ### 3. Added Graceful Degradation to Worker
 
-Updated `worker/src/index.ts` to handle missing DB:
+Updated `backend/src/index.ts` to handle missing DB:
 ```typescript
 // Check if DB is configured for auth endpoints
 if (path.startsWith('/api/auth') || path === '/api/me') {
@@ -123,8 +123,8 @@ The deployment will succeed because the `wrangler.jsonc` now has:
 ## Files Changed
 
 1. `wrangler.jsonc` - Commented out D1 binding
-2. `worker/src/types/env.ts` - Made bindings optional
-3. `worker/src/index.ts` - Added DB availability check
+2. `backend/src/types/env.ts` - Made bindings optional
+3. `backend/src/index.ts` - Added DB availability check
 4. `DEPLOYMENT.md` - Created deployment guide
 5. `README.md` - Added deployment information
 

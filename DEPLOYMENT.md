@@ -11,7 +11,7 @@ The Angular application must be built before deployment.
 npm run build
 ```
 
-This creates the `dist/mind-frontend/browser` directory that the worker serves.
+This creates the `frontend/dist/mind-frontend/browser` directory that the worker serves.
 
 ### 2. ⚠️ D1 Database Setup (Optional - for Authentication)
 
@@ -50,7 +50,7 @@ Edit `wrangler.jsonc` and uncomment the D1 database section:
 
 #### Step 2.4: Run Database Migration
 ```bash
-npx wrangler d1 execute mindtoolbox-db --remote --file=./worker/migrations/0001_create_users_table.sql
+npx wrangler d1 execute mindtoolbox-db --remote --file=./backend/migrations/0001_create_users_table.sql
 ```
 
 #### Step 2.5: Set JWT Secret
@@ -87,7 +87,7 @@ The worker will serve your Angular application. Auth endpoints will return a 503
 - Comment out the D1 database section in `wrangler.jsonc` (default)
 - OR complete the D1 setup steps above
 
-### Error: "Directory not found: dist/mind-frontend/browser"
+### Error: "Directory not found: frontend/dist/mind-frontend/browser"
 
 **Cause**: Angular app hasn't been built.
 
@@ -125,7 +125,7 @@ npx wrangler d1 create mindtoolbox-db
 # 2. Update wrangler.jsonc with database_id (uncomment and paste ID)
 
 # 3. Run migration
-npx wrangler d1 execute mindtoolbox-db --remote --file=./worker/migrations/0001_create_users_table.sql
+npx wrangler d1 execute mindtoolbox-db --remote --file=./backend/migrations/0001_create_users_table.sql
 
 # 4. Set JWT secret
 echo "$(openssl rand -base64 32)" | npx wrangler secret put JWT_SECRET
@@ -153,4 +153,4 @@ curl https://your-worker.workers.dev/api/me
 
 - See [AUTH_SETUP.md](AUTH_SETUP.md) for detailed authentication setup
 - See [QUICK_REFERENCE.md](QUICK_REFERENCE.md) for common commands
-- See [worker/README.md](worker/README.md) for backend documentation
+- See [backend/README.md](backend/README.md) for backend documentation

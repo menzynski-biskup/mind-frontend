@@ -7,7 +7,7 @@
 npm install
 
 # 2. Run database migration (local)
-npx wrangler d1 execute mindtoolbox-db --local --file=./worker/migrations/0001_create_users_table.sql
+npx wrangler d1 execute mindtoolbox-db --local --file=./backend/migrations/0001_create_users_table.sql
 
 # 3. Start worker (comment out assets section in wrangler.jsonc first)
 npx wrangler dev --port 8787
@@ -123,7 +123,7 @@ export const routes: Routes = [
 ## 📚 Documentation
 
 - **[AUTH_SETUP.md](AUTH_SETUP.md)** - Setup guide
-- **[worker/README.md](worker/README.md)** - Backend docs
+- **[backend/README.md](backend/README.md)** - Backend docs
 - **[docs/FRONTEND_INTEGRATION.md](docs/FRONTEND_INTEGRATION.md)** - Frontend examples
 - **[IMPLEMENTATION_SUMMARY.md](IMPLEMENTATION_SUMMARY.md)** - Complete overview
 
@@ -134,7 +134,7 @@ export const routes: Routes = [
 npx wrangler d1 create mindtoolbox-db
 
 # 2. Run migration on production
-npx wrangler d1 execute mindtoolbox-db --remote --file=./worker/migrations/0001_create_users_table.sql
+npx wrangler d1 execute mindtoolbox-db --remote --file=./backend/migrations/0001_create_users_table.sql
 
 # 3. Set JWT secret
 echo "$(openssl rand -base64 32)" | npx wrangler secret put JWT_SECRET
@@ -151,7 +151,7 @@ npx wrangler deploy
 ## ⚠️ Important Notes
 
 1. **Never commit secrets** - Use .dev.vars for local, Cloudflare Secrets for production
-2. **Update CORS origins** - Edit allowedOrigins in worker/src/index.ts
+2. **Update CORS origins** - Edit allowedOrigins in backend/src/index.ts
 3. **Use HTTPS in production** - Required for secure cookies (automatic with Cloudflare)
 4. **Test thoroughly** - Test all endpoints before deploying
 
@@ -172,7 +172,7 @@ npx wrangler deploy
 - Wait 15 minutes or adjust limits in rate-limit.ts
 
 **Database not found**
-- Run migration: `npx wrangler d1 execute mindtoolbox-db --local --file=./worker/migrations/0001_create_users_table.sql`
+- Run migration: `npx wrangler d1 execute mindtoolbox-db --local --file=./backend/migrations/0001_create_users_table.sql`
 
 **Worker won't start**
 - Comment out assets section in wrangler.jsonc if Angular not built

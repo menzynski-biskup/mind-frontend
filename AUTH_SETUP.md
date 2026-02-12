@@ -23,10 +23,10 @@ npx wrangler d1 create mindtoolbox-db
 
 ```bash
 # Local (for development)
-npx wrangler d1 execute mindtoolbox-db --local --file=./worker/migrations/0001_create_users_table.sql
+npx wrangler d1 execute mindtoolbox-db --local --file=./backend/migrations/0001_create_users_table.sql
 
 # Remote (for production)
-npx wrangler d1 execute mindtoolbox-db --remote --file=./worker/migrations/0001_create_users_table.sql
+npx wrangler d1 execute mindtoolbox-db --remote --file=./backend/migrations/0001_create_users_table.sql
 ```
 
 ### 4. Update Configuration
@@ -42,7 +42,7 @@ Edit `wrangler.jsonc`:
 echo "your-super-secret-jwt-key-$(openssl rand -base64 32)" | npx wrangler secret put JWT_SECRET
 ```
 
-4. Update `allowedOrigins` in `worker/src/index.ts` with your frontend domain(s)
+4. Update `allowedOrigins` in `backend/src/index.ts` with your frontend domain(s)
 
 ### 5. Test Locally
 
@@ -270,7 +270,7 @@ npx wrangler deploy
 
 ```
 mind-frontend/
-├── worker/                      # Cloudflare Worker backend
+├── backend/                      # Cloudflare Worker backend
 │   ├── src/
 │   │   ├── handlers/
 │   │   │   └── auth.ts          # Auth endpoint handlers
@@ -309,10 +309,10 @@ Check that:
 3. The token hasn't expired (24-hour lifetime)
 
 ### Rate limiting too aggressive
-Adjust `MAX_ATTEMPTS` and `RATE_LIMIT_WINDOW` in `worker/src/utils/rate-limit.ts`.
+Adjust `MAX_ATTEMPTS` and `RATE_LIMIT_WINDOW` in `backend/src/utils/rate-limit.ts`.
 
 ### CORS issues
-If frontend and backend are on different domains, update CORS headers in `worker/src/index.ts`.
+If frontend and backend are on different domains, update CORS headers in `backend/src/index.ts`.
 
 ## Production Checklist
 
@@ -329,7 +329,7 @@ If frontend and backend are on different domains, update CORS headers in `worker
 
 ## Additional Resources
 
-- [Worker README](worker/README.md) - Detailed backend documentation
+- [Worker README](backend/README.md) - Detailed backend documentation
 - [Frontend Integration Guide](docs/FRONTEND_INTEGRATION.md) - Frontend usage examples
 - [Cloudflare Workers Docs](https://developers.cloudflare.com/workers/)
 - [D1 Database Docs](https://developers.cloudflare.com/d1/)

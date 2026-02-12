@@ -7,7 +7,7 @@ Successfully implemented a complete authentication system for the MIND applicati
 
 ### Backend (Cloudflare Workers)
 - **Location**: `/worker` directory
-- **Entry Point**: `worker/src/index.ts`
+- **Entry Point**: `backend/src/index.ts`
 - **Language**: TypeScript
 
 #### API Endpoints
@@ -66,7 +66,7 @@ CREATE TABLE users (
 
 ### Documentation
 1. **AUTH_SETUP.md** - Quick start and setup guide
-2. **worker/README.md** - Detailed worker documentation
+2. **backend/README.md** - Detailed worker documentation
 3. **docs/FRONTEND_INTEGRATION.md** - Frontend integration examples
 4. **.env.example** - Environment variable reference
 
@@ -188,7 +188,7 @@ export class LoginComponent {
 
 2. **Run Migration**
    ```bash
-   npx wrangler d1 execute mindtoolbox-db --remote --file=./worker/migrations/0001_create_users_table.sql
+   npx wrangler d1 execute mindtoolbox-db --remote --file=./backend/migrations/0001_create_users_table.sql
    ```
 
 3. **Set Secrets**
@@ -198,7 +198,7 @@ export class LoginComponent {
 
 4. **Update Configuration**
    - Update `database_id` in wrangler.jsonc
-   - Update `allowedOrigins` in worker/src/index.ts
+   - Update `allowedOrigins` in backend/src/index.ts
 
 5. **Deploy**
    ```bash
@@ -209,7 +209,7 @@ export class LoginComponent {
 ## File Structure
 ```
 mind-frontend/
-├── worker/
+├── backend/
 │   ├── src/
 │   │   ├── handlers/
 │   │   │   └── auth.ts
@@ -284,7 +284,7 @@ mind-frontend/
 For issues or questions:
 1. Check AUTH_SETUP.md for setup help
 2. Review docs/FRONTEND_INTEGRATION.md for usage examples
-3. Check worker/README.md for detailed backend docs
+3. Check backend/README.md for detailed backend docs
 4. Review Cloudflare Workers and D1 documentation
 
 ---

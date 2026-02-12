@@ -1,12 +1,18 @@
 {
-  "name": "mind-frontend",
+  "name": "mind-toolbox",
   "version": "0.0.0",
   "scripts": {
-    "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "ng": "cd frontend && ng",
+    "start": "cd frontend && ng serve",
+    "build": "cd frontend && ng build",
+    "build:frontend": "cd frontend && ng build",
+    "build:backend": "echo 'Backend builds via wrangler'",
+    "watch": "cd frontend && ng build --watch --configuration development",
+    "test": "cd frontend && ng test",
+    "test:frontend": "cd frontend && ng test",
+    "deploy": "npm run build:frontend && npx wrangler deploy",
+    "dev:frontend": "cd frontend && ng serve",
+    "dev:backend": "npx wrangler dev"
   },
   "prettier": {
     "printWidth": 100,

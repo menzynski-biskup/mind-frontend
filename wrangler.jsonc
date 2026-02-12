@@ -8,7 +8,7 @@
   "compatibility_date": "2026-01-28",
 
   // Worker entry point
-  "main": "./worker/src/index.ts",
+  "main": "./backend/src/index.ts",
 
   // D1 Database binding
   // IMPORTANT: Uncomment this section AFTER creating your D1 database:
@@ -16,7 +16,7 @@
   //   2. Copy the database_id from the output
   //   3. Replace YOUR_DATABASE_ID_HERE with the actual ID
   //   4. Uncomment the lines below
-  //   5. Run migration: npx wrangler d1 execute mindtoolbox-db --remote --file=./worker/migrations/0001_create_users_table.sql
+  //   5. Run migration: npx wrangler d1 execute mindtoolbox-db --remote --file=./backend/migrations/0001_create_users_table.sql
   "d1_databases": [
     {
     "binding": "DB",
@@ -37,7 +37,7 @@
   // Note: Comment out or remove the assets section when testing the worker without building Angular
   // Uncomment after running: npm run build
   "assets": {
-    "directory": "./dist/mind-frontend/browser",
+    "directory": "./frontend/dist/mind-frontend/browser",
 
     // SPA routing: if /some/route isn't a real file, serve /index.html
     "not_found_handling": "single-page-application"
