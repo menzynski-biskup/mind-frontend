@@ -12,8 +12,14 @@ export default {
     const method = request.method;
 
     // Enable CORS for API endpoints
+    // Note: In production, replace '*' with your actual frontend origin
+    // e.g., 'https://yourdomain.com' when using credentials
+    const origin = request.headers.get('Origin') || '';
+    const allowedOrigins = ['http://localhost:4200', 'http://localhost:8787'];
+    const isAllowedOrigin = allowedOrigins.includes(origin);
+    
     const corsHeaders = {
-      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Origin': isAllowedOrigin ? origin : 'http://localhost:4200',
       'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
       'Access-Control-Allow-Headers': 'Content-Type, Cookie',
       'Access-Control-Allow-Credentials': 'true',

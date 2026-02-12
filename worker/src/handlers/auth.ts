@@ -191,8 +191,8 @@ export async function handleLogin(request: Request, env: Env): Promise<Response>
 
     // Use constant-time comparison to prevent timing attacks
     if (!user) {
-      // Still hash to prevent timing attacks
-      await hashPassword('dummy_password');
+      // Still hash the provided password to prevent timing attacks
+      await hashPassword(password);
       return new Response(
         JSON.stringify({ error: 'Invalid credentials' }),
         { status: 401, headers: { 'Content-Type': 'application/json' } }

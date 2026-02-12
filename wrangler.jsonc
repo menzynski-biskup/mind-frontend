@@ -20,9 +20,12 @@
   ],
 
   // Environment variables
-  "vars": {
-    "JWT_SECRET": "CHANGE_THIS_IN_PRODUCTION"
-  },
+  // IMPORTANT: Set JWT_SECRET as a secret in production using:
+  //   echo "your-secret-key" | npx wrangler secret put JWT_SECRET
+  // For local development only, you can use vars, but never commit real secrets
+  // "vars": {
+  //   "JWT_SECRET": "local-dev-secret-only"
+  // },
 
   // Serve your Angular build output as static assets
   // Note: Comment out or remove the assets section when testing the worker without building Angular

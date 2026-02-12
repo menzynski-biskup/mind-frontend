@@ -44,4 +44,11 @@ __screenshots__/
 .DS_Store
 Thumbs.db
 
+# Wrangler and secrets
 .wrangler/
+.dev.vars
+wrangler.toml
+
+# Environment variables (keep .env.example)
+.env.local
+.env.*.local

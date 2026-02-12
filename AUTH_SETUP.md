@@ -34,13 +34,15 @@ npx wrangler d1 execute mindtoolbox-db --remote --file=./worker/migrations/0001_
 Edit `wrangler.jsonc`:
 
 1. Replace `YOUR_DATABASE_ID_HERE` with your actual D1 database ID
-2. Change `JWT_SECRET` to a strong random value (generate with: `openssl rand -base64 32`)
-
-For production, use Cloudflare secrets instead of plaintext:
+2. For local development, uncomment the `vars` section and set a temporary JWT_SECRET
+3. For production, **always use Cloudflare secrets** (never commit secrets):
 
 ```bash
-echo "your-super-secret-jwt-key" | npx wrangler secret put JWT_SECRET
+# Set JWT_SECRET as a secret (recommended for production)
+echo "your-super-secret-jwt-key-$(openssl rand -base64 32)" | npx wrangler secret put JWT_SECRET
 ```
+
+4. Update `allowedOrigins` in `worker/src/index.ts` with your frontend domain(s)
 
 ### 5. Test Locally
 
