@@ -50,6 +50,7 @@ Thumbs.db
 wrangler.toml
 
 # Environment variables (keep .env.example)
+.env
 .env.local
 .env.*.local
 wrangler.test.jsonc
