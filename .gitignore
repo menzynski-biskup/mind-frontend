@@ -2,6 +2,8 @@
 
 # Compiled output
 /dist
+/frontend/dist
+/backend/dist
 /tmp
 /out-tsc
 /bazel-out

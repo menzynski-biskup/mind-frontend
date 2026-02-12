@@ -36,6 +36,7 @@ mind-toolbox/
 ```
 
 For detailed information:
+- See [ARCHITECTURE.md](ARCHITECTURE.md) for complete project architecture
 - See [frontend/README.md](frontend/README.md) for frontend development
 - See [backend/README.md](backend/README.md) for backend API development
 
