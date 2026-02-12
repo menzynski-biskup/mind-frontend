@@ -13,6 +13,58 @@ MIND is a proposed research and development initiative exploring mechanism-infor
   - Test administration and sequencing
   - Centralized data organization
   - Research pipeline management
+- Authentication system with Cloudflare Workers and D1 database (optional)
+
+## Quick Start
+
+### Development
+
+```bash
+# Install dependencies
+npm install
+
+# Start development server
+ng serve
+```
+
+Once the server is running, open your browser and navigate to `http://localhost:4200/`.
+
+### Building
+
+```bash
+# Build for production
+ng build
+```
+
+This compiles your project and stores the build artifacts in the `dist/` directory.
+
+### Deployment to Cloudflare Workers
+
+**Important**: Before deploying, review the [DEPLOYMENT.md](DEPLOYMENT.md) checklist.
+
+```bash
+# Build the Angular app
+npm run build
+
+# Deploy to Cloudflare Workers
+npx wrangler deploy
+```
+
+**Note**: The authentication features require D1 database setup. See [DEPLOYMENT.md](DEPLOYMENT.md) for details.
+
+## Authentication System
+
+This project includes an optional authentication system using:
+- Cloudflare Workers for the backend
+- D1 database for user storage
+- JWT cookies for session management
+
+**Documentation**:
+- [DEPLOYMENT.md](DEPLOYMENT.md) - Pre-deployment checklist
+- [AUTH_SETUP.md](AUTH_SETUP.md) - Complete authentication setup guide
+- [QUICK_REFERENCE.md](QUICK_REFERENCE.md) - Quick command reference
+
+**Important**: The authentication system is optional. The app will deploy and run without it. Auth endpoints will return a helpful message if not configured.
 
 ## Development server
 

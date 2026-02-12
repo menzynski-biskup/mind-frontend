@@ -33,6 +33,22 @@ export default {
       });
     }
 
+    // Check if DB is configured for auth endpoints
+    if (path.startsWith('/api/auth') || path === '/api/me') {
+      if (!env.DB) {
+        return new Response(
+          JSON.stringify({ 
+            error: 'Authentication service not configured. Please set up D1 database binding.',
+            message: 'See AUTH_SETUP.md for setup instructions.'
+          }),
+          {
+            status: 503,
+            headers: { 'Content-Type': 'application/json', ...corsHeaders }
+          }
+        );
+      }
+    }
+
     // API Routes
     if (path === '/api/auth/register' && method === 'POST') {
       const response = await handleRegister(request, env);
