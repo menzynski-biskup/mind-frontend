@@ -103,6 +103,31 @@ Get the currently authenticated user.
 }
 ```
 
+## Form + Compute + Rules Engine
+
+The researcher intake engine lets studies define intake forms, derived variables, and rules without hardcoded logic.
+
+### POST /api/studies/:id/forms
+Create a form template.
+
+### POST /api/studies/:id/forms/:formId/fields
+Add a form field definition.
+
+### POST /api/studies/:id/forms/:formId/logic
+Add conditional logic JSON for a form template.
+
+### POST /api/studies/:id/compute-definitions
+Create a derived variable definition (functions: midpoint, duration, add_days, normalize_time).
+
+### POST /api/studies/:id/rule-sets
+Create an eligibility, group assignment, or scheduling rule set.
+
+### POST /api/studies/:id/participants/:participantId/intake-submit
+Submit intake answers, run compute definitions, and evaluate rule sets.
+
+### GET /api/studies/:id/participants/:participantId/intake-result
+Fetch the latest intake evaluation payload.
+
 ## Setup
 
 ### 1. Install Dependencies
@@ -126,8 +151,12 @@ npx wrangler d1 create mindtoolbox-db
 # Apply the migration to create the users table
 npx wrangler d1 execute mindtoolbox-db --file=./worker/migrations/0001_create_users_table.sql --local
 
+# Apply the form/compute/rules engine schema
+npx wrangler d1 execute mindtoolbox-db --file=./worker/migrations/0002_create_form_compute_rules_tables.sql --local
+
 # For production:
 npx wrangler d1 execute mindtoolbox-db --file=./worker/migrations/0001_create_users_table.sql --remote
+npx wrangler d1 execute mindtoolbox-db --file=./worker/migrations/0002_create_form_compute_rules_tables.sql --remote
 ```
 
 ### 4. Update Configuration

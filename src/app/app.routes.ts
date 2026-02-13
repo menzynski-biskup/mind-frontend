@@ -45,6 +45,34 @@ export const routes: Routes = [
         data: { sectionId: 'studies' },
       },
       {
+        path: 'studies/intake-builder',
+        loadComponent: () =>
+          import('./pages/study-intake-builder/study-intake-builder').then(
+            (m) => m.StudyIntakeBuilderComponent
+          ),
+      },
+      {
+        path: 'studies/compute-builder',
+        loadComponent: () =>
+          import('./pages/study-compute-builder/study-compute-builder').then(
+            (m) => m.StudyComputeBuilderComponent
+          ),
+      },
+      {
+        path: 'studies/rules-builder',
+        loadComponent: () =>
+          import('./pages/study-rules-builder/study-rules-builder').then(
+            (m) => m.StudyRulesBuilderComponent
+          ),
+      },
+      {
+        path: 'studies/intake-results',
+        loadComponent: () =>
+          import('./pages/study-intake-results/study-intake-results').then(
+            (m) => m.StudyIntakeResultsComponent
+          ),
+      },
+      {
         path: 'participants',
         loadComponent: () =>
           import('./pages/researcher-section/researcher-section').then(

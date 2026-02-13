@@ -1,0 +1,131 @@
+<article class="page-content engine-page" aria-labelledby="intake-builder-title">
+  <header>
+    <span class="tag">Study intake builder</span>
+    <h2 id="intake-builder-title" class="page-heading">Intake form builder</h2>
+    <p>Define intake templates, fields, and conditional logic without hardcoded study logic.</p>
+  </header>
+
+  <section class="section-block">
+    <h3>Create form template</h3>
+    <form class="engine-form" [formGroup]="templateForm" (ngSubmit)="createTemplate()">
+      <label>
+        Study ID
+        <input type="text" formControlName="studyId" />
+      </label>
+      <label>
+        Template name
+        <input type="text" formControlName="name" />
+      </label>
+      <label>
+        Version
+        <input type="number" min="1" formControlName="version" />
+      </label>
+      <label>
+        Status
+        <select formControlName="status">
+          @for (status of statuses; track status) {
+            <option [value]="status">{{ status }}</option>
+          }
+        </select>
+      </label>
+      <button type="submit">Create template</button>
+      @if (templateMessage()) {
+        <p class="form-message">{{ templateMessage() }}</p>
+      }
+    </form>
+    @if (templateResult()) {
+      <div class="response-card">
+        <h4>Template response</h4>
+        <pre>{{ templateResult()?.data | json }}</pre>
+      </div>
+    }
+  </section>
+
+  <section class="section-block">
+    <h3>Add field</h3>
+    <form class="engine-form" [formGroup]="fieldForm" (ngSubmit)="createField()">
+      <label>
+        Study ID
+        <input type="text" formControlName="studyId" />
+      </label>
+      <label>
+        Form template ID
+        <input type="number" min="1" formControlName="formTemplateId" />
+      </label>
+      <label>
+        Field key
+        <input type="text" formControlName="key" />
+      </label>
+      <label>
+        Label
+        <input type="text" formControlName="label" />
+      </label>
+      <label>
+        Type
+        <select formControlName="type">
+          @for (type of fieldTypes; track type) {
+            <option [value]="type">{{ type }}</option>
+          }
+        </select>
+      </label>
+      <label class="checkbox-field">
+        <input type="checkbox" formControlName="required" />
+        Required
+      </label>
+      <label>
+        Options JSON
+        <textarea rows="3" formControlName="optionsJson"></textarea>
+      </label>
+      <label>
+        Validation JSON
+        <textarea rows="3" formControlName="validationJson"></textarea>
+      </label>
+      <label>
+        Order index
+        <input type="number" min="0" formControlName="orderIndex" />
+      </label>
+      <button type="submit">Add field</button>
+      @if (fieldMessage()) {
+        <p class="form-message">{{ fieldMessage() }}</p>
+      }
+    </form>
+    @if (fieldResult()) {
+      <div class="response-card">
+        <h4>Field response</h4>
+        <pre>{{ fieldResult()?.data | json }}</pre>
+      </div>
+    }
+  </section>
+
+  <section class="section-block">
+    <h3>Add conditional logic</h3>
+    <form class="engine-form" [formGroup]="logicForm" (ngSubmit)="createLogic()">
+      <label>
+        Study ID
+        <input type="text" formControlName="studyId" />
+      </label>
+      <label>
+        Form template ID
+        <input type="number" min="1" formControlName="formTemplateId" />
+      </label>
+      <label>
+        Logic JSON
+        <textarea rows="4" formControlName="logicJson"></textarea>
+      </label>
+      <label>
+        Order index
+        <input type="number" min="0" formControlName="orderIndex" />
+      </label>
+      <button type="submit">Add logic</button>
+      @if (logicMessage()) {
+        <p class="form-message">{{ logicMessage() }}</p>
+      }
+    </form>
+    @if (logicResult()) {
+      <div class="response-card">
+        <h4>Logic response</h4>
+        <pre>{{ logicResult()?.data | json }}</pre>
+      </div>
+    }
+  </section>
+</article>

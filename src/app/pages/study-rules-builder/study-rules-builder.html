@@ -1,0 +1,55 @@
+<article class="page-content engine-page" aria-labelledby="rules-builder-title">
+  <header>
+    <span class="tag">Rules builder</span>
+    <h2 id="rules-builder-title" class="page-heading">Rules builder</h2>
+    <p>Define eligibility, group assignment, and scheduling rules in a JSON DSL.</p>
+  </header>
+
+  <section class="section-block">
+    <h3>New rule set</h3>
+    <form class="engine-form" [formGroup]="ruleForm" (ngSubmit)="createRuleSet()">
+      <label>
+        Study ID
+        <input type="text" formControlName="studyId" />
+      </label>
+      <label>
+        Rule type
+        <select formControlName="ruleType">
+          @for (ruleType of ruleTypes; track ruleType) {
+            <option [value]="ruleType">{{ ruleType }}</option>
+          }
+        </select>
+      </label>
+      <label>
+        Name
+        <input type="text" formControlName="name" />
+      </label>
+      <label>
+        Version
+        <input type="number" min="1" formControlName="version" />
+      </label>
+      <label>
+        Status
+        <select formControlName="status">
+          @for (status of statuses; track status) {
+            <option [value]="status">{{ status }}</option>
+          }
+        </select>
+      </label>
+      <label>
+        Expression JSON
+        <textarea rows="5" formControlName="expressionJson"></textarea>
+      </label>
+      <button type="submit">Create rule set</button>
+      @if (ruleMessage()) {
+        <p class="form-message">{{ ruleMessage() }}</p>
+      }
+    </form>
+    @if (ruleResult()) {
+      <div class="response-card">
+        <h4>Rule response</h4>
+        <pre>{{ ruleResult()?.data | json }}</pre>
+      </div>
+    }
+  </section>
+</article>

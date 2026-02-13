@@ -92,6 +92,14 @@ const SECTION_CONTENT: Record<SectionId, SectionContent> = {
     actions: [
       { label: 'New study', description: 'Draft protocol + milestones' },
       { label: 'Manage templates', description: 'Edit visit steps' },
+      { label: 'Intake builder', description: 'Define form fields + logic', path: '/app/studies/intake-builder' },
+      {
+        label: 'Compute builder',
+        description: 'Add derived variable definitions',
+        path: '/app/studies/compute-builder',
+      },
+      { label: 'Rules builder', description: 'Eligibility + scheduling rules', path: '/app/studies/rules-builder' },
+      { label: 'Result viewer', description: 'Review intake evaluation output', path: '/app/studies/intake-results' },
     ],
     wireframe: [
       'Protocol summary with collapsible sections for aims, methods, and data safety.',
