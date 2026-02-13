@@ -1,0 +1,51 @@
+<article class="page-content engine-page" aria-labelledby="compute-builder-title">
+  <header>
+    <span class="tag">Derived variables</span>
+    <h2 id="compute-builder-title" class="page-heading">Compute definition builder</h2>
+    <p>Define reusable derived variables with function-based expressions.</p>
+  </header>
+
+  <section class="section-block">
+    <h3>New compute definition</h3>
+    <form class="engine-form" [formGroup]="computeForm" (ngSubmit)="createComputeDefinition()">
+      <label>
+        Study ID
+        <input type="text" formControlName="studyId" />
+      </label>
+      <label>
+        Key
+        <input type="text" formControlName="key" />
+      </label>
+      <label>
+        Type
+        <input type="text" formControlName="type" />
+      </label>
+      <label>
+        Version
+        <input type="number" min="1" formControlName="version" />
+      </label>
+      <label>
+        Status
+        <select formControlName="status">
+          @for (status of statuses; track status) {
+            <option [value]="status">{{ status }}</option>
+          }
+        </select>
+      </label>
+      <label>
+        Definition JSON
+        <textarea rows="5" formControlName="definitionJson"></textarea>
+      </label>
+      <button type="submit">Create definition</button>
+      @if (computeMessage()) {
+        <p class="form-message">{{ computeMessage() }}</p>
+      }
+    </form>
+    @if (computeResult()) {
+      <div class="response-card">
+        <h4>Compute response</h4>
+        <pre>{{ computeResult()?.data | json }}</pre>
+      </div>
+    }
+  </section>
+</article>

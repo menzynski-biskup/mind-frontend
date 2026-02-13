@@ -1,0 +1,67 @@
+<article class="page-content engine-page" aria-labelledby="intake-results-title">
+  <header>
+    <span class="tag">Intake results</span>
+    <h2 id="intake-results-title" class="page-heading">Intake submission &amp; results</h2>
+    <p>Submit intake answers, compute derived values, and review rule evaluation traces.</p>
+  </header>
+
+  <section class="section-block">
+    <h3>Submit intake</h3>
+    <form class="engine-form" [formGroup]="submitForm" (ngSubmit)="submitIntake()">
+      <label>
+        Study ID
+        <input type="text" formControlName="studyId" />
+      </label>
+      <label>
+        Participant ID
+        <input type="text" formControlName="participantId" />
+      </label>
+      <label>
+        Form template ID
+        <input type="number" min="1" formControlName="formTemplateId" />
+      </label>
+      <label>
+        Answers JSON
+        <textarea rows="5" formControlName="answersJson"></textarea>
+      </label>
+      <label>
+        Metadata JSON (optional)
+        <textarea rows="3" formControlName="metadataJson"></textarea>
+      </label>
+      <button type="submit">Submit intake</button>
+      @if (submitMessage()) {
+        <p class="form-message">{{ submitMessage() }}</p>
+      }
+    </form>
+    @if (submitResult()) {
+      <div class="response-card">
+        <h4>Submission response</h4>
+        <pre>{{ submitResult()?.data | json }}</pre>
+      </div>
+    }
+  </section>
+
+  <section class="section-block">
+    <h3>Fetch intake result</h3>
+    <form class="engine-form" [formGroup]="resultForm" (ngSubmit)="loadResult()">
+      <label>
+        Study ID
+        <input type="text" formControlName="studyId" />
+      </label>
+      <label>
+        Participant ID
+        <input type="text" formControlName="participantId" />
+      </label>
+      <button type="submit">Load result</button>
+      @if (intakeMessage()) {
+        <p class="form-message">{{ intakeMessage() }}</p>
+      }
+    </form>
+    @if (intakeResult()) {
+      <div class="response-card">
+        <h4>Result payload</h4>
+        <pre>{{ intakeResult()?.data | json }}</pre>
+      </div>
+    }
+  </section>
+</article>
