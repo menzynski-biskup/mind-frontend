@@ -1,14 +1,26 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { Router } from '@angular/router';
 
 import { RegisterComponent } from './register';
 
 describe('Register', () => {
   let component: RegisterComponent;
   let fixture: ComponentFixture<RegisterComponent>;
+  let navigatedTo: unknown;
+  let router: Router;
 
   beforeEach(async () => {
+    navigatedTo = null;
+    router = {
+      navigate: (commands: unknown[]) => {
+        navigatedTo = commands;
+        return Promise.resolve(true);
+      },
+    } as Router;
+
     await TestBed.configureTestingModule({
-      imports: [RegisterComponent]
+      imports: [RegisterComponent],
+      providers: [{ provide: Router, useValue: router }]
     })
     .compileComponents();
 
@@ -19,5 +31,11 @@ describe('Register', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should navigate to login', () => {
+    component.goLogin();
+
+    expect(navigatedTo).toEqual(['/login']);
   });
 });
