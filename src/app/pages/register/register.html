@@ -1,0 +1,47 @@
+<div class="login">
+  <div class="login__surface">
+    <header class="login__header">
+      <span class="login__logo" aria-hidden="true">M</span>
+      <div>
+        <h1 class="login__title">Create your MIND account</h1>
+        <p class="login__subtitle">Set up access to researcher and clinician workspaces.</p>
+      </div>
+    </header>
+
+    <form class="login__form">
+      <div class="login__field">
+        <label for="full-name">Full name</label>
+        <input id="full-name" type="text" placeholder="Your name" autocomplete="name" />
+      </div>
+
+      <div class="login__field">
+        <label for="register-email">Email</label>
+        <input
+          id="register-email"
+          type="email"
+          placeholder="you@example.com"
+          autocomplete="email"
+        />
+      </div>
+
+      <div class="login__field">
+        <label for="register-password">Password</label>
+        <input
+          id="register-password"
+          type="password"
+          placeholder="Create a password"
+          autocomplete="new-password"
+        />
+      </div>
+
+      <div class="login__actions">
+        <button type="button" class="login__btn login__btn--primary">Create account</button>
+        <button type="button" class="login__btn login__btn--ghost" (click)="goLogin()">
+          Back to login
+        </button>
+      </div>
+    </form>
+
+    <p class="login__note">Demo only – registration is not wired up yet.</p>
+  </div>
+</div>

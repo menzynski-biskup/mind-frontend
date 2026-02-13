@@ -42,6 +42,30 @@
               </a>
             </li>
           }
+          <li class="nav-group">
+            <a
+              class="nav-link"
+              routerLink="/login"
+              routerLinkActive="active"
+              #loginLink="routerLinkActive"
+              [attr.aria-current]="loginLink.isActive ? 'page' : null"
+              (click)="closeMenu()"
+            >
+              Login
+            </a>
+          </li>
+          <li class="nav-group">
+            <a
+              class="nav-link"
+              routerLink="/register"
+              routerLinkActive="active"
+              #registerLink="routerLinkActive"
+              [attr.aria-current]="registerLink.isActive ? 'page' : null"
+              (click)="closeMenu()"
+            >
+              Register
+            </a>
+          </li>
         </ul>
       </nav>
     </div>
