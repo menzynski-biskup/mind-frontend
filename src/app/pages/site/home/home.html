@@ -15,6 +15,25 @@
         }
       </div>
     </div>
+    <div class="home-hero__panel" aria-label="Key focus highlights">
+      <div class="home-hero__panel-header">
+        <span class="tag">Focus areas</span>
+        <p class="meta-text">Planned pillars guiding the MIND concept.</p>
+      </div>
+      <ul class="home-hero__list">
+        @for (feature of vm.page.sections[1].features; track feature.title; let i = $index) {
+          @if (i < 3) {
+            <li>
+              <span class="home-hero__bullet" aria-hidden="true"></span>
+              <div>
+                <p class="home-hero__item-title">{{ feature.title }}</p>
+                <p class="home-hero__item-text">{{ feature.description }}</p>
+              </div>
+            </li>
+          }
+        }
+      </ul>
+    </div>
   </header>
 
   <section class="section-block" aria-labelledby="home-why">

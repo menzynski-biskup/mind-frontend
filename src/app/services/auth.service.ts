@@ -1,4 +1,4 @@
-import { Injectable, signal } from '@angular/core';
+import { inject, Injectable, signal } from '@angular/core';
 import { Router } from '@angular/router';
 
 export interface User {
@@ -21,6 +21,7 @@ export interface ErrorResponse {
   providedIn: 'root'
 })
 export class AuthService {
+  private readonly router = inject(Router);
   // Current user signal
   private currentUserSignal = signal<User | null>(null);
   public currentUser = this.currentUserSignal.asReadonly();
@@ -32,7 +33,7 @@ export class AuthService {
   // API base URL - update this based on your environment
   private readonly API_BASE_URL = '/api';
 
-  constructor(private router: Router) {
+  constructor() {
     // Check auth state on service initialization
     this.checkAuthState();
   }

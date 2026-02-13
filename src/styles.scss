@@ -1,17 +1,17 @@
 :root {
   color-scheme: light;
-  --color-bg: #eef2f9;
+  --color-bg: #f4f6fb;
   --color-surface: #ffffff;
-  --color-elevated: #f6f8fc;
-  --color-text: #192231;
-  --color-subtle: #5a6475;
-  --color-accent: #114c98;
-  --color-accent-strong: #0b2f66;
-  --color-accent-soft: #e1ecff;
-  --color-border: #d3dbe8;
-  --color-border-strong: #bac5d6;
-  --shadow-sm: 0 8px 24px rgba(17, 76, 152, 0.08);
-  --shadow-lg: 0 18px 40px rgba(17, 76, 152, 0.12);
+  --color-elevated: #f2f4ff;
+  --color-text: #0f172a;
+  --color-subtle: #475569;
+  --color-accent: #6d28d9;
+  --color-accent-strong: #4c1d95;
+  --color-accent-soft: #ede9fe;
+  --color-border: #d8dff2;
+  --color-border-strong: #c5cfe6;
+  --shadow-sm: 0 10px 30px rgba(76, 29, 149, 0.08);
+  --shadow-lg: 0 24px 60px rgba(76, 29, 149, 0.12);
   --radius-sm: 6px;
   --radius-md: 12px;
   --radius-lg: 22px;
@@ -32,7 +32,7 @@ body {
 
 body {
   margin: 0;
-  background: linear-gradient(180deg, #f7f9fd 0%, #eef2f9 40%, #e9edf5 100%);
+  background: linear-gradient(180deg, #f8f9ff 0%, #eef2fb 45%, #e9edf7 100%);
   color: var(--color-text);
   font-family: var(--font-base);
   line-height: 1.65;
@@ -45,8 +45,8 @@ body::before {
   position: fixed;
   inset: 0;
   pointer-events: none;
-  background: radial-gradient(120% 70% at 0% 0%, rgba(17, 76, 152, 0.18) 0%, rgba(17, 76, 152, 0) 55%),
-    radial-gradient(80% 65% at 90% 0%, rgba(18, 166, 213, 0.12) 0%, rgba(18, 166, 213, 0) 60%);
+  background: radial-gradient(120% 70% at 0% 0%, rgba(109, 40, 217, 0.18) 0%, rgba(109, 40, 217, 0) 55%),
+    radial-gradient(80% 65% at 90% 0%, rgba(34, 211, 238, 0.14) 0%, rgba(34, 211, 238, 0) 60%);
   opacity: 0.85;
   z-index: -1;
 }
@@ -119,9 +119,9 @@ button {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(255, 255, 255, 0.9);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.8);
-  box-shadow: 0 1px 0 rgba(12, 37, 77, 0.06);
+  background: rgba(255, 255, 255, 0.88);
+  border-bottom: 1px solid rgba(109, 40, 217, 0.08);
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
   transition: box-shadow 0.3s ease, backdrop-filter 0.3s ease;
 }
 
@@ -197,7 +197,7 @@ button {
 .menu-toggle:hover,
 .menu-toggle:focus-visible {
   background: var(--color-accent-soft);
-  box-shadow: 0 0 0 4px rgba(17, 76, 152, 0.08);
+  box-shadow: 0 0 0 4px rgba(109, 40, 217, 0.1);
 }
 
 .primary-nav {
@@ -233,20 +233,20 @@ button {
 .primary-nav .nav-disclosure:hover,
 .primary-nav .nav-disclosure:focus-visible {
   color: var(--color-accent-strong);
-  background: rgba(17, 76, 152, 0.08);
+  background: rgba(109, 40, 217, 0.08);
 }
 
 .primary-nav a[aria-current='page'],
 .primary-nav .nav-disclosure[aria-expanded='true'] {
-  background: rgba(17, 76, 152, 0.12);
+  background: rgba(109, 40, 217, 0.12);
   color: var(--color-accent-strong);
-  box-shadow: inset 0 0 0 1px rgba(17, 76, 152, 0.25);
+  box-shadow: inset 0 0 0 1px rgba(109, 40, 217, 0.25);
 }
 
 .nav-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(8, 24, 54, 0.35);
+  background: rgba(15, 23, 42, 0.35);
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.2s ease;
@@ -280,7 +280,7 @@ button {
   position: relative;
   background: var(--color-surface);
   border-radius: var(--radius-lg);
-  border: 1px solid rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(109, 40, 217, 0.12);
   box-shadow: var(--shadow-sm);
   padding: clamp(2.25rem, 4vw, 3rem);
   overflow: hidden;
@@ -290,7 +290,7 @@ button {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(17, 76, 152, 0.08) 0%, rgba(17, 76, 152, 0) 55%);
+  background: linear-gradient(135deg, rgba(109, 40, 217, 0.08) 0%, rgba(109, 40, 217, 0) 55%);
   opacity: 0.6;
   pointer-events: none;
 }
@@ -372,7 +372,7 @@ p {
   display: inline-flex;
   width: 40px;
   height: 2px;
-  background: var(--color-accent);
+  background: linear-gradient(90deg, var(--color-accent), #22d3ee);
   border-radius: 999px;
 }
 
@@ -385,9 +385,10 @@ p {
 .summary-card {
   background: var(--color-elevated);
   border-radius: var(--radius-md);
-  padding: 1.5rem;
-  border: 1px solid rgba(17, 76, 152, 0.12);
-  box-shadow: 0 6px 16px rgba(17, 76, 152, 0.08);
+  padding: 1.6rem;
+  border: 1px solid rgba(109, 40, 217, 0.14);
+  border-top: 3px solid rgba(109, 40, 217, 0.5);
+  box-shadow: 0 8px 18px rgba(109, 40, 217, 0.08);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -435,7 +436,7 @@ caption {
 }
 
 thead th {
-  background: rgba(17, 76, 152, 0.12);
+  background: rgba(109, 40, 217, 0.12);
   color: var(--color-accent-strong);
   font-weight: 600;
 }
@@ -449,17 +450,17 @@ td {
 }
 
 tbody tr:nth-of-type(even) {
-  background: rgba(17, 76, 152, 0.04);
+  background: rgba(109, 40, 217, 0.04);
 }
 
 tbody tr:hover {
-  background: rgba(17, 76, 152, 0.08);
+  background: rgba(109, 40, 217, 0.08);
 }
 
 code {
   font-family: 'JetBrains Mono', 'Fira Code', monospace;
   font-size: 0.95em;
-  background: rgba(17, 76, 152, 0.08);
+  background: rgba(109, 40, 217, 0.08);
   color: var(--color-accent-strong);
   padding: 0.1rem 0.35rem;
   border-radius: var(--radius-sm);
@@ -487,7 +488,7 @@ dd {
 
 .callout {
   border-left: 4px solid var(--color-accent);
-  background: rgba(17, 76, 152, 0.08);
+  background: rgba(109, 40, 217, 0.08);
   padding: 1rem 1.25rem;
   border-radius: 0 var(--radius-md) var(--radius-md) 0;
   margin: 1.75rem 0;
@@ -520,7 +521,7 @@ dd {
   gap: 0.3rem;
   padding: 0.3rem 0.85rem;
   border-radius: 999px;
-  background: rgba(17, 76, 152, 0.12);
+  background: rgba(109, 40, 217, 0.12);
   color: var(--color-accent-strong);
   font-size: 0.78rem;
   letter-spacing: 0.04em;
@@ -534,8 +535,8 @@ dd {
 }
 
 .layout-footer {
-  background: linear-gradient(180deg, rgba(17, 76, 152, 0.12) 0%, rgba(17, 76, 152, 0.04) 100%);
-  border-top: 1px solid rgba(17, 76, 152, 0.1);
+  background: linear-gradient(180deg, rgba(109, 40, 217, 0.1) 0%, rgba(109, 40, 217, 0.04) 100%);
+  border-top: 1px solid rgba(109, 40, 217, 0.12);
   margin-top: clamp(2.5rem, 6vw, 4rem);
 }
 
@@ -550,8 +551,8 @@ dd {
   background: rgba(255, 255, 255, 0.6);
   border-radius: var(--radius-md);
   padding: 1.25rem 1.5rem;
-  border: 1px solid rgba(17, 76, 152, 0.12);
-  box-shadow: 0 6px 14px rgba(12, 37, 77, 0.08);
+  border: 1px solid rgba(109, 40, 217, 0.12);
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.08);
 }
 
 .footer-grid h2 {
@@ -606,7 +607,7 @@ dd {
     border: 1px solid var(--color-border);
     border-radius: var(--radius-md);
     padding: 1rem;
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(255, 255, 255, 0.98);
     box-shadow: var(--shadow-sm);
   }
 

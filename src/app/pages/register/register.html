@@ -8,10 +8,17 @@
       </div>
     </header>
 
-    <form class="login__form">
+    <form class="login__form" [formGroup]="form">
       <div class="login__field">
         <label for="full-name">Full name</label>
-        <input id="full-name" type="text" placeholder="Your name" autocomplete="name" />
+        <input
+          id="full-name"
+          type="text"
+          placeholder="Your name"
+          autocomplete="name"
+          formControlName="fullName"
+          required
+        />
       </div>
 
       <div class="login__field">
@@ -21,6 +28,8 @@
           type="email"
           placeholder="you@example.com"
           autocomplete="email"
+          formControlName="email"
+          required
         />
       </div>
 
@@ -31,6 +40,8 @@
           type="password"
           placeholder="Create a password"
           autocomplete="new-password"
+          formControlName="password"
+          required
         />
       </div>
 

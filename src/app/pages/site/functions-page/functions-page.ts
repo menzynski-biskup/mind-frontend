@@ -8,7 +8,6 @@ import { FunctionsPageViewModel } from './functions-page.viewmodel';
   templateUrl: './functions-page.html',
   styleUrl: './functions-page.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
   providers: [FunctionsPageViewModel],
 })
 export class FunctionsPageComponent {
