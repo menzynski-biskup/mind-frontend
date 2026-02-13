@@ -8,7 +8,6 @@ import { AboutPageViewModel } from './about-page.viewmodel';
   templateUrl: './about-page.html',
   styleUrl: './about-page.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
   providers: [AboutPageViewModel],
 })
 export class AboutPageComponent {

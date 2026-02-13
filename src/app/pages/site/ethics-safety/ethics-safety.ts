@@ -8,7 +8,6 @@ import { EthicsSafetyViewModel } from './ethics-safety.viewmodel';
   templateUrl: './ethics-safety.html',
   styleUrl: './ethics-safety.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
   providers: [EthicsSafetyViewModel],
 })
 export class EthicsSafetyPageComponent {

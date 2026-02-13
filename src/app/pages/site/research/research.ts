@@ -8,7 +8,6 @@ import { ResearchViewModel } from './research.viewmodel';
   templateUrl: './research.html',
   styleUrl: './research.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
   providers: [ResearchViewModel],
 })
 export class ResearchPageComponent {

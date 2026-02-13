@@ -8,7 +8,6 @@ import { DementiaAiAssistantViewModel } from './dementia-ai-assistant.viewmodel'
   templateUrl: './dementia-ai-assistant.html',
   styleUrl: './dementia-ai-assistant.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
   providers: [DementiaAiAssistantViewModel],
 })
 export class DementiaAiAssistantPageComponent {

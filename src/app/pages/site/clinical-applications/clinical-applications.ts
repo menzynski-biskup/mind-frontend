@@ -8,7 +8,6 @@ import { ClinicalApplicationsViewModel } from './clinical-applications.viewmodel
   templateUrl: './clinical-applications.html',
   styleUrl: './clinical-applications.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
   providers: [ClinicalApplicationsViewModel],
 })
 export class ClinicalApplicationsPageComponent {
