@@ -36,7 +36,7 @@
   },
   "devDependencies": {
     "@angular/build": "^21.0.0",
-    "@angular/cli": "^21.0.4",
+    "@angular/cli": "^21.1.4",
     "@angular/compiler-cli": "^21.1.1",
     "@cloudflare/workers-types": "^4.20260212.0",
     "jsdom": "^27.1.0",
